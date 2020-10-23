@@ -6,7 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="client\" />
+    <None Remove="client\src\providers\UserProfileProvider.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="client\src\providers\UserProfileProvider.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
     <Folder Include="Repositories\" />
   </ItemGroup>
