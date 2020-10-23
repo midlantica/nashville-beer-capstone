@@ -1,0 +1,6 @@
+﻿set identity_insert [UserProfile] on
+insert into UserProfile (Id, DisplayName, FirstName, LastName, Email, CreateDateTime, ImageLocation, UserTypeId, FirebaseUserId) values (1, 'drew', 'Drew', 'Harper', 'drew@gmail.com', '2020-04-23', 'http://drewharper.com', 1, 'jpuhyzaicsokywncxveknzowfpdu');
+insert into UserProfile (Id, DisplayName, FirstName, LastName, Email, CreateDateTime, ImageLocation, UserTypeId, FirebaseUserId) values (2, 'fred', 'Fred', 'Jones', 'fred@gmail.com', '2020-04-20', 'https://robohash.org/nisiautemet.png?size=150x150&set=set1', 2, 'vhbgqyeqelhgkohutnoglbdohssl');
+insert into UserProfile (Id, DisplayName, FirstName, LastName, Email, CreateDateTime, ImageLocation, UserTypeId, FirebaseUserId) values (3, 'jane', 'Jane', 'Smith', 'jane@gmail.com', '2020-01-13', 'https://robohash.org/molestiaemagnamet.png?size=150x150&set=set1', 1, 'wqhvgdjxjqkqecuridpvjtwpoacc');
+insert into UserProfile (Id, DisplayName, FirstName, LastName, Email, CreateDateTime, ImageLocation, UserTypeId, FirebaseUserId) values (4, 'john', 'John', 'Smith', 'john@gmail.com', '2020-04-12', 'https://robohash.org/doloremfugiatrerum.png?size=150x150&set=set1', 1, 'exsjcqvnhydjofznqmtvecekcgno');
+set identity_insert [UserProfile] off
