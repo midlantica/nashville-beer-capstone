@@ -10,10 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="client\src\providers\UserProfileProvider.js" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <Folder Include="client\src\providers\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
     <Folder Include="Repositories\" />
