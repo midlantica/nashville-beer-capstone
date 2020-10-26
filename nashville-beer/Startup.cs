@@ -29,7 +29,10 @@ namespace nashville_beer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IUserProfileRepository, UserProfileRepository>();
-            //services.AddTransient<IQuoteRepository, QuoteRepository>();
+            services.AddTransient<IBreweryRepository, BreweryRepository>();
+            //services.AddTransient<IBeerRepository, BeerRepository>();
+            //services.AddTransient<ICommentsRepository, CommentsRepository>();
+
 
             var firebaseProjectId = Configuration.GetValue<string>("FirebaseProjectId");
             var googleTokenUrl = $"https://securetoken.google.com/{firebaseProjectId}";

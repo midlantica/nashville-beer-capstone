@@ -13,14 +13,14 @@ DROP TABLE IF EXISTS [beer];
 DROP TABLE IF EXISTS [comments];
 GO
 
-CREATE TABLE "users" {
+CREATE TABLE "users" (
   "id" int [pk]
   "username" varchar [not null]
   "email" varchar(40)  [not null]
   "password" varchar(40)  [not null]
   "firebaseUserId" varchar  [not null]
   "isAdmin" bool [not null]
-}
+)
 
 CREATE TABLE "brewery" (
   "id" int [pk]
