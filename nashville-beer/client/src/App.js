@@ -8,12 +8,12 @@ import ApplicationViews from "./components/ApplicationViews";
 function App() {
   return (
     <Router>
-      <UserProfileProvider>
-
-        <Header />
-        <ApplicationViews />
-
-      </UserProfileProvider>
+        <UserProfileProvider>
+          <Header />
+          <div className="container mt-3">
+            <ApplicationViews />
+          </div>
+        </UserProfileProvider>
     </Router>
   );
 }

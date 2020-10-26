@@ -19,7 +19,7 @@ export default function Header() {
   return (
     <div>
       <Navbar color="dark" dark expand="md">
-        <NavbarBrand tag={RRNavLink} to="/">Grace Hopper Wisdom</NavbarBrand>
+        <NavbarBrand tag={RRNavLink} to="/">Nashville Breweries</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
@@ -45,13 +45,7 @@ export default function Header() {
               </>
             }
           </Nav>
-          <Nav navbar>
-            <NavItem>
-              <a aria-current="page" className="nav-link"
-                href="https://www.youtube.com/watch?v=3N_ywhx6_K0"
-                target="_new">Grace Hopper on Letterman</a>
-            </NavItem>
-          </Nav>
+
         </Collapse>
       </Navbar>
     </div>

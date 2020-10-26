@@ -9,7 +9,7 @@ export default function ApplicationViews() {
   const { isLoggedIn } = useContext(UserProfileContext);
 
   return (
-    <main>
+    <main class="mx-5">
       <Switch>
 
         <Route path="/" exact>

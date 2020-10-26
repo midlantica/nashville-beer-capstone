@@ -22,15 +22,15 @@ CREATE TABLE "users" {
   "isAdmin" bool [not null]
 }
 
-CREATE TABLE "brewery" {
+CREATE TABLE "brewery" (
   "id" int [pk]
   "title" varchar  [not null]
   "address" varchar  [not null]
   "image" varchar  [not null]
   "established" date [not null]
-}
+)
 
-CREATE TABLE "beer" {
+CREATE TABLE "beer" (
   "id" int [pk]
   "name" int [not null]
   "type" varchar [not null]
@@ -38,15 +38,21 @@ CREATE TABLE "beer" {
   "ibu" varchar [not null]
   "image" varchar [not null]
   "breweryId" int [not null]
-}
+)
 
-CREATE TABLE "comments" {
+CREATE TABLE "comments" (
   "id" int [pk]
   "comment" varchar [not null]
   "beerId" int [not null]
   "userId" int [not null]
-}
+)
 
-Ref: "comments"."beerId" > "beer"."id"
-Ref: "beer"."breweryId" > "brewery"."id"
-Ref: "users"."id" < "comments"."userId"
+
+ALTER TABLE [comments] ADD FOREIGN KEY ([beerId]) REFERENCES [beer] ([id])
+GO
+
+ALTER TABLE [beer] ADD FOREIGN KEY ([breweryId]) REFERENCES [brewery] ([id])
+GO
+
+ALTER TABLE [comments] ADD FOREIGN KEY ([userId]) REFERENCES [users] ([id])
+GO
