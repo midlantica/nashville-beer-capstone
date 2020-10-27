@@ -1,20 +1,24 @@
 USE [nashvilleBeer];
 GO
 
-SET IDENTITY_INSERT [Users] ON
-INSERT INTO Users (Id, 
-Username, Email, FirebaseUserId, IsAdmin) VALUES (1, 'admin', 'admin@gmail.com', 'N5zAybIN1ySAzJm6EMfpXDFbu7q2', 1);
-INSERT INTO Users (Id, 
-Username, Email, FirebaseUserId, IsAdmin) VALUES (2, 'fred', 'fred@gmail.com', '7y9HapP31MS0y0NTrRrE9lhPVHD2', 1);
-INSERT INTO Users (Id, 
-Username, Email, FirebaseUserId, IsAdmin) VALUES (3, 'susan', 'susan@gmail.com', 'H43zzqBklHeVOSZMw8IgDxvacRn1', 1);
-INSERT INTO Users (Id, 
-Username, Email, FirebaseUserId, IsAdmin) VALUES (4, 'tom', 'tom@gmail.com', 'fCYBH2imlESZFYIOJa4arMgIar62', 1);
-INSERT INTO Users (Id, 
-Username, Email, FirebaseUserId, IsAdmin) VALUES (5, 'mary', 'mary@gmail.com', '2PrEh2MxlqdS2v2VC1LRRjHKFbw2', 1);
-INSERT INTO Users (Id, 
-Username, Email, FirebaseUserId, IsAdmin) VALUES (6, 'erik', 'erik@gmail.com', 'Oduxh2KM3fRJ7WUMf2ghHgQvxll1', 1);
-SET IDENTITY_INSERT [users] OFF
+set identity_insert [UserType] on
+insert into [UserType] ([ID], [Name]) VALUES (1, 'Admin'), (2, 'Drinker');
+set identity_insert [UserType] off
+
+SET IDENTITY_INSERT [UserProfile] ON
+INSERT INTO UserProfile (Id, 
+Username, Email, FirebaseUserId, UserTypeId) VALUES (1, 'admin', 'admin@gmail.com', 'N5zAybIN1ySAzJm6EMfpXDFbu7q2', 1);
+INSERT INTO UserProfile (Id, 
+Username, Email, FirebaseUserId, UserTypeId) VALUES (2, 'fred', 'fred@gmail.com', '7y9HapP31MS0y0NTrRrE9lhPVHD2', 1);
+INSERT INTO UserProfile (Id, 
+Username, Email, FirebaseUserId, UserTypeId) VALUES (3, 'susan', 'susan@gmail.com', 'H43zzqBklHeVOSZMw8IgDxvacRn1', 2);
+INSERT INTO UserProfile (Id, 
+Username, Email, FirebaseUserId, UserTypeId) VALUES (4, 'tom', 'tom@gmail.com', 'fCYBH2imlESZFYIOJa4arMgIar62', 2);
+INSERT INTO UserProfile (Id, 
+Username, Email, FirebaseUserId, UserTypeId) VALUES (5, 'mary', 'mary@gmail.com', '2PrEh2MxlqdS2v2VC1LRRjHKFbw2', 2);
+INSERT INTO UserProfile (Id, 
+Username, Email, FirebaseUserId, UserTypeId) VALUES (6, 'erik', 'erik@gmail.com', 'Oduxh2KM3fRJ7WUMf2ghHgQvxll1', 2);
+SET IDENTITY_INSERT [UserProfile] OFF
 
 SET IDENTITY_INSERT [Brewery] ON
 INSERT INTO Brewery(Id,[Title],[Address],[Website],ImageUrl,Established) VALUES (1,'Bearded Iris Brewing','101 Van Buren St., Nashville, Tennessee 37208 US','https://beardedirisbrewing.com/', 'https://www.pngkit.com/png/full/336-3361660_bearded-iris-2018-approved-logo-bearded-iris-brewing.png',2016);
@@ -105,12 +109,4 @@ INSERT INTO Comments (Id, Comment, BeerId, UserId) VALUES (4, 'Maecenas sed diam
 INSERT INTO Comments (Id, Comment, BeerId, UserId) VALUES (5, 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet.', 1, 5);
 INSERT INTO Comments (Id, Comment, BeerId, UserId) VALUES (6, 'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.', 1, 1);
 SET IDENTITY_INSERT [Comments] off
-
-
-
-
---SET IDENTITY_INSERT [Tag] ON
---INSERT INTO [Tag] ([Id], [Name])
---VALUES (1, 'C#'), (2, 'JavaScript'), (3, 'Funny'), (4, 'Scary');
---SET IDENTITY_INSERT [Tag] OFF
 

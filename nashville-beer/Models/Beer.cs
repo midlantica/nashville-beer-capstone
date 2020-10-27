@@ -22,6 +22,8 @@ namespace nashvilleBeer.Models
         public int Ibu { get; set; }
 
         [Required]
+        [DataType(DataType.Url)]
+        [MaxLength(255)]
         public string ImageUrl { get; set; }
 
         public int BreweryId { get; set; }

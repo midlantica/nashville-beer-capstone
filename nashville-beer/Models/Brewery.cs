@@ -21,6 +21,8 @@ namespace nashvilleBeer.Models
         public string Website { get; set; }
 
         [Required]
+        [DataType(DataType.Url)]
+        [MaxLength(255)]
         public string ImageUrl { get; set; }
 
         public string Established { get; set; }

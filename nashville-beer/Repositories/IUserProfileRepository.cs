@@ -1,4 +1,5 @@
 ﻿using nashvilleBeer.Models;
+using System.Collections.Generic;
 
 namespace nashvilleBeer.Repositories
 {
@@ -6,5 +7,7 @@ namespace nashvilleBeer.Repositories
     {
         void Add(UserProfile userProfile);
         UserProfile GetByFirebaseUserId(string firebaseUserId);
+        UserProfile GetUserProfileById(int id);
+        void UpdateUserProfile(UserProfile userProfile);
     }
 }

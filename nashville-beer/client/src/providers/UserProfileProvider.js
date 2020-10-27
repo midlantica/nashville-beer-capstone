@@ -10,6 +10,9 @@ export function UserProfileProvider(props) {
 
   const userProfile = sessionStorage.getItem("userProfile");
   const [isLoggedIn, setIsLoggedIn] = useState(userProfile != null);
+  const [users, setUsers] = useState([]);
+
+  const [ userTypes, setUserTypes ] = useState([]);
 
   const [isFirebaseReady, setIsFirebaseReady] = useState(false);
   useEffect(() => {
@@ -18,12 +21,38 @@ export function UserProfileProvider(props) {
     });
   }, []);
 
+  const getAllUsers = () =>
+    getToken().then((token) =>
+      fetch(apiUrl, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }).then(resp => resp.json())
+        .then(setUsers));
+
+  const getAllInactiveUsers = () =>
+    getToken().then((token) =>
+      fetch(`${apiUrl}/inactive`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }).then(resp => resp.json())
+        .then(setUsers));
+
   const login = (email, pw) => {
     return firebase.auth().signInWithEmailAndPassword(email, pw)
       .then((signInResponse) => getUserProfile(signInResponse.user.uid))
       .then((userProfile) => {
-        sessionStorage.setItem("userProfile", JSON.stringify(userProfile));
-        setIsLoggedIn(true);
+        {console.log(userProfile)}
+        if (userProfile.isActive == true) {
+          sessionStorage.setItem("userProfile", JSON.stringify(userProfile));
+          setIsLoggedIn(true);
+        }
+        else {
+          alert("This account has been deactivated by an administrator.")
+        }
       });
   };
 
@@ -46,9 +75,21 @@ export function UserProfileProvider(props) {
 
   const getToken = () => firebase.auth().currentUser.getIdToken();
 
+
   const getUserProfile = (firebaseUserId) => {
+    //debugger;
     return getToken().then((token) =>
       fetch(`${apiUrl}/${firebaseUserId}`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }).then(resp => resp.json()));
+  };
+
+  const getUserId = (id) => {
+    return getToken().then((token) =>
+      fetch(`${apiUrl}/user/${id}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`
@@ -68,8 +109,32 @@ export function UserProfileProvider(props) {
       }).then(resp => resp.json()));
   };
 
+  const updateUser = (user) => {
+    return getToken().then((token) =>
+      fetch(`${apiUrl}/${user.id}`, {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user)
+      }));
+  };
+
+  const getAllUserTypes = () =>
+    getToken().then((token) =>
+      fetch("/api/usertype", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }).then(resp => resp.json())
+        .then(setUserTypes));
+
+
+
   return (
-    <UserProfileContext.Provider value={{ isLoggedIn, login, logout, register, getToken }}>
+    <UserProfileContext.Provider value={{ users, isLoggedIn, login, logout, register, getToken, setUsers, getAllUsers, getUserProfile, updateUser, getUserId, getAllInactiveUsers, userTypes, getAllUserTypes }}>
       {isFirebaseReady
         ? props.children
         : <Spinner className="app-spinner dark"/>}
