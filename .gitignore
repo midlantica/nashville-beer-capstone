@@ -341,3 +341,6 @@ healthchecksdb
 
 *.swp
 appsettings.Local.json
+nashville-beer/client/._.DS_Store
+._.DS_Store
+.DS_Store
