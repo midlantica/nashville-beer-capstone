@@ -45,7 +45,7 @@ namespace nashvilleBeer.Controllers
         [HttpPost]
         public IActionResult Post(UserProfile userProfile)
         {
-            userProfile.IsActive = true;
+            userProfile.UserTypeId = UserType.AUTHOR_ID;
             _userProfileRepository.Add(userProfile);
             return CreatedAtAction(
                 nameof(GetUserProfile),

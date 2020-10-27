@@ -19,13 +19,13 @@ namespace nashvilleBeer.Models
         [MaxLength(255)]
         public string Email { get; set; }
 
-        public bool IsActive { get; set; }
+        //public bool IsActive { get; set; }
         //public bool IsAdmin { get; set; }
 
-        [Required]
+        //[Required]
         public int UserTypeId { get; set; }
 
-        public UserType UserType { get; set; }
+        //public UserType UserType { get; set; }
 
     }
 }

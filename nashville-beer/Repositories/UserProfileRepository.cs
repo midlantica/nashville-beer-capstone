@@ -18,7 +18,7 @@ namespace nashvilleBeer.Repositories
                 {
                     cmd.CommandText = @"
                         SELECT up.Id, up.FirebaseUserId, up.Username, 
-                               up.Email, up.CreateDateTime, up.ImageLocation, up.UserTypeId, up.IsActive,
+                               up.Email, up.UserTypeId, 
                                ut.Name AS UserTypeName
                           FROM UserProfile up
                                LEFT JOIN UserType ut on up.UserTypeId = ut.Id
@@ -35,15 +35,14 @@ namespace nashvilleBeer.Repositories
                         {
                             Id = DbUtils.GetInt(reader, "Id"),
                             FirebaseUserId = DbUtils.GetString(reader, "FirebaseUserId"),
-                            Username = DbUtils.GetString(reader, "Username"),
+                            Username = DbUtils.GetString(reader, "UserTypeName"),
                             Email = DbUtils.GetString(reader, "Email"),
-                            UserTypeId = DbUtils.GetInt(reader, "UserTypeId"),
-                            UserType = new UserType()
+                            UserTypeId = DbUtils.GetInt(reader, "UserTypeId")
+                            /*UserType = new UserType()
                             {
                                 Id = DbUtils.GetInt(reader, "UserTypeId"),
                                 Username = DbUtils.GetString(reader, "UserTypeName"),
-                            },
-                            IsActive = reader.GetBoolean(reader.GetOrdinal("IsActive"))
+                            },*/
                         };
                     }
                     reader.Close();
@@ -61,13 +60,10 @@ namespace nashvilleBeer.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                       SELECT up.id, up.FirebaseUserId, up.Username, up.Email,
-                              up.CreateDateTime, up.IsActive, up.ImageLocation, up.UserTypeId, up.IsActive,
-                              ut.[Username] AS UserTypeName
+                       SELECT up.id, up.FirebaseUserId, up.Username, up.Email, up.UserTypeId, 
+                              ut.[Name] AS UserTypeName
                          FROM UserProfile up
                               LEFT JOIN UserType ut ON up.UserTypeId = ut.id
-                        WHERE IsActive = 1
-                            ORDER BY DisplayName
                         ";
                     var reader = cmd.ExecuteReader();
                     var userProfile = new List<UserProfile>();
@@ -81,13 +77,7 @@ namespace nashvilleBeer.Repositories
                             FirebaseUserId = DbUtils.GetString(reader, "FirebaseUserId"),
                             Username = DbUtils.GetString(reader, "Username"),
                             Email = DbUtils.GetString(reader, "Email"),
-                            UserTypeId = DbUtils.GetInt(reader, "UserTypeId"),
-                            UserType = new UserType()
-                            {
-                                Id = DbUtils.GetInt(reader, "UserTypeId"),
-                                Username = DbUtils.GetString(reader, "UserTypeName"),
-                            },
-                            IsActive = reader.GetBoolean(reader.GetOrdinal("IsActive"))
+                            UserTypeId = DbUtils.GetInt(reader, "UserTypeId")
                         });
                     }
 
@@ -107,12 +97,9 @@ namespace nashvilleBeer.Repositories
                 {
                     cmd.CommandText = @"
                        SELECT up.id, up.FirebaseUserId, up.Username, up.Email,
-                              up.CreateDateTime, up.IsActive, up.ImageLocation, up.UserTypeId, up.IsActive,
                               ut.[Name] AS UserTypeName
                          FROM UserProfile up
                               LEFT JOIN UserType ut ON up.UserTypeId = ut.id
-                        WHERE IsActive = 0
-                            ORDER BY DisplayName
                         ";
                     var reader = cmd.ExecuteReader();
                     var userProfile = new List<UserProfile>();
@@ -127,12 +114,6 @@ namespace nashvilleBeer.Repositories
                             Username = DbUtils.GetString(reader, "Username"),
                             Email = DbUtils.GetString(reader, "Email"),
                             UserTypeId = DbUtils.GetInt(reader, "UserTypeId"),
-                            UserType = new UserType()
-                            {
-                                Id = DbUtils.GetInt(reader, "UserTypeId"),
-                                Username = DbUtils.GetString(reader, "UserTypeName"),
-                            },
-                            IsActive = reader.GetBoolean(reader.GetOrdinal("IsActive"))
                         });
                     }
 
@@ -151,15 +132,14 @@ namespace nashvilleBeer.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"INSERT INTO UserProfile (FirebaseUserId, Username,
-                                                                 Email, UserTypeId, IsActive)
+                                                                 Email, UserTypeId)
                                         OUTPUT INSERTED.ID
                                         VALUES (@FirebaseUserId, @Username,
-                                                @Email, @UserTypeId, @IsActive)";
+                                                @Email, @UserTypeId)";
                     DbUtils.AddParameter(cmd, "@FirebaseUserId", userProfile.FirebaseUserId);
                     DbUtils.AddParameter(cmd, "@Username", userProfile.Username);
                     DbUtils.AddParameter(cmd, "@Email", userProfile.Email);
                     DbUtils.AddParameter(cmd, "@UserTypeId", userProfile.UserTypeId);
-                    DbUtils.AddParameter(cmd, "@IsActive", userProfile.IsActive);
 
                     userProfile.Id = (int)cmd.ExecuteScalar();
                 }
@@ -176,7 +156,7 @@ namespace nashvilleBeer.Repositories
                     {
                         cmd.CommandText = @"SELECT 
                               u.id, u.FirebaseUserId, u.Username, u.Email, 
-                              u.IsActive, u.UserTypeId,
+                              u.UserTypeId,
                               ut.[Name] AS UserTypeName
                          FROM UserProfile u
                               LEFT JOIN UserType ut ON u.UserTypeId = ut.id
@@ -194,14 +174,7 @@ namespace nashvilleBeer.Repositories
                                 FirebaseUserId = reader.GetString(reader.GetOrdinal("FirebaseUserId")),
                                 Email = reader.GetString(reader.GetOrdinal("Email")),
                                 Username = reader.GetString(reader.GetOrdinal("Username")),
-                                IsActive = reader.GetBoolean(reader.GetOrdinal("IsActive")),
-                                UserTypeId = reader.GetInt32(reader.GetOrdinal("UserTypeId")),
-                                UserType = new UserType()
-                                {
-                                    Id = reader.GetInt32(reader.GetOrdinal("UserTypeId")),
-                                    Username = reader.GetString(reader.GetOrdinal("UserTypeName"))
-                                },
-
+                                UserTypeId = reader.GetInt32(reader.GetOrdinal("UserTypeId"))
                             };
                             reader.Close();
                             return userProfile;
@@ -226,14 +199,12 @@ namespace nashvilleBeer.Repositories
                                 Email = @email, 
                                 FirebaseUserId = @firebaseUserId,
                                 Username = @userName, 
-                                IsActive = @isActive,
 		                        UserTypeId = @userTypeId
                             WHERE Id = @id";
                     cmd.Parameters.AddWithValue("@id", userProfile.Id);
                     cmd.Parameters.AddWithValue("@email", userProfile.Email);
                     cmd.Parameters.AddWithValue("@firebaseUserId", userProfile.FirebaseUserId);
                     cmd.Parameters.AddWithValue("@userName", userProfile.Username);
-                    cmd.Parameters.AddWithValue("@isActive", userProfile.IsActive);
                     cmd.Parameters.AddWithValue("@userTypeId", userProfile.UserTypeId);
                     cmd.ExecuteNonQuery();
                 }

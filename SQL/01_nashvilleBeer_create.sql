@@ -19,7 +19,6 @@ CREATE TABLE [UserType] (
   [Name] nvarchar(20) NOT NULL
 )
 
-
 CREATE TABLE [UserProfile] (
   [Id] int PRIMARY KEY identity NOT NULL,
   [Username] nvarchar(40) NOT NULL,

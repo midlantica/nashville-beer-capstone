@@ -45,14 +45,12 @@ export function UserProfileProvider(props) {
     return firebase.auth().signInWithEmailAndPassword(email, pw)
       .then((signInResponse) => getUserProfile(signInResponse.user.uid))
       .then((userProfile) => {
-        {console.log(userProfile)}
-        if (userProfile.isActive == true) {
-          sessionStorage.setItem("userProfile", JSON.stringify(userProfile));
-          setIsLoggedIn(true);
-        }
-        else {
-          alert("This account has been deactivated by an administrator.")
-        }
+        { console.log(userProfile) }
+
+        sessionStorage.setItem("userProfile", JSON.stringify(userProfile));
+        setIsLoggedIn(true);
+
+
       });
   };
 
@@ -74,7 +72,6 @@ export function UserProfileProvider(props) {
   };
 
   const getToken = () => firebase.auth().currentUser.getIdToken();
-
 
   const getUserProfile = (firebaseUserId) => {
     //debugger;
