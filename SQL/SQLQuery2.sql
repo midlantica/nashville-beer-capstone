@@ -1,0 +1,1 @@
+﻿SELECT id, Title FROM Brewery ORDER BY Title ASC;
