@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace nashville_beer.Models
+namespace nashvilleBeer.Models
 {
     public class Beer
     {

@@ -12,9 +12,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
-using nashville_beer.Repositories;
+using nashvilleBeer.Repositories;
 
-namespace nashville_beer
+namespace nashvilleBeer
 {
     public class Startup
     {

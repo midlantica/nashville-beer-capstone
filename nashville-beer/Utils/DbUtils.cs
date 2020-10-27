@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Data.SqlClient;
 
-namespace nashville_beer.Utils
+namespace nashvilleBeer.Utils
 {
     /// <summary>
     ///  A set of useful function for interacting with ADO.NET

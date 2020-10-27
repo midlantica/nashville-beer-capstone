@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
-using nashville_beer.Models;
-using nashville_beer.Utils;
+using nashvilleBeer.Models;
+using nashvilleBeer.Utils;
 
-namespace nashville_beer.Repositories
+namespace nashvilleBeer.Repositories
 {
     public class UserProfileRepository : BaseRepository, IUserProfileRepository
     {

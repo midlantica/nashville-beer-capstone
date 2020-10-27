@@ -1,7 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 
-namespace nashville_beer.Repositories
+namespace nashvilleBeer.Repositories
 {
     public abstract class BaseRepository
     {

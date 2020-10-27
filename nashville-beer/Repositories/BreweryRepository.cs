@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
-using nashville_beer.Models;
+using nashvilleBeer.Models;
 
-namespace nashville_beer.Repositories
+namespace nashvilleBeer.Repositories
 {
 
     public class BreweryRepository : BaseRepository, IBreweryRepository

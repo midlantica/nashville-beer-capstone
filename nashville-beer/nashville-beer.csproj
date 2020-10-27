@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>nashville_beer</RootNamespace>
+    <RootNamespace>nashvilleBeer</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

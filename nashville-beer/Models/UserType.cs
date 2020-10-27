@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace nashville_beer.Models
+namespace nashvilleBeer.Models
 {
     public class UserType
     {

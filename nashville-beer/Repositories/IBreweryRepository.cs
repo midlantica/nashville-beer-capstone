@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using nashville_beer.Models;
+using nashvilleBeer.Models;
 using Microsoft.Data.SqlClient;
 
-namespace nashville_beer.Repositories
+namespace nashvilleBeer.Repositories
 {
     public interface IBreweryRepository
     {

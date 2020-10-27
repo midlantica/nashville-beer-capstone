@@ -1,6 +1,6 @@
-﻿using nashville_beer.Models;
+﻿using nashvilleBeer.Models;
 
-namespace nashville_beer.Repositories
+namespace nashvilleBeer.Repositories
 {
     public interface IUserProfileRepository
     {

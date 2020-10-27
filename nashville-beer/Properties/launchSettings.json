@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "nashville_beer": {
+    "nashvilleBeer": {
       "commandName": "Project",
       "launchUrl": "api/",
       "environmentVariables": {

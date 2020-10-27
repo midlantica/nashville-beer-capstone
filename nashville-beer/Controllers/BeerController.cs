@@ -13,59 +13,59 @@ namespace nashvilleBeer.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class BreweryController : ControllerBase
+    public class BeerController : ControllerBase
     {
-        private readonly IBreweryRepository _breweryRepository;
+        private readonly IBeerRepository _beerRepository;
         // private readonly IUserProfileRepository _userProfileRepository;
 
-        public BreweryController(IBreweryRepository breweryRepository)
+        public BeerController(IBeerRepository beerRepository)
         {
-            _breweryRepository = breweryRepository;
+            _beerRepository = beerRepository;
         }
 
         [HttpGet]
         public IActionResult Get()
         {
-            var breweries = _breweryRepository.GetAllBreweries();
-            return Ok(breweries);
+            var beers = _beerRepository.GetAllBeers();
+            return Ok(beers);
         }
 
 
         [HttpGet("{id}")]
         public ActionResult Get(int id)
         {
-            Brewery brewery = _breweryRepository.GetBreweryById(id);
+            Beer beer = _beerRepository.GetBeerById(id);
 
-            if (brewery == null)
+            if (beer == null)
             {
                 return NotFound();
             }
-            return Ok(brewery);
+            return Ok(beer);
         }
 
         [HttpPost]
-        public IActionResult Post(Brewery brewery)
+        public IActionResult Post(Beer beer)
         {
-            _breweryRepository.AddBrewery(brewery);
-            return CreatedAtAction("Get", new { id = brewery.Id }, brewery);
+            _beerRepository.AddBeer(beer);
+            return CreatedAtAction("Get", new { id = beer.Id }, beer);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(int id, Brewery brewery)
+        public IActionResult Put(int id, Beer beer)
         {
-            if (id != brewery.Id)
+            if (id != beer.Id)
             {
                 return BadRequest();
             }
 
-            _breweryRepository.UpdateBrewery(brewery);
+            _beerRepository.UpdateBeer(beer);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            _breweryRepository.DeleteBrewery(id);
+            _beerRepository.DeleteBeer(id);
             return NoContent();
         }
 
