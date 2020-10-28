@@ -10,7 +10,7 @@ using nashvilleBeer.Models;
 
 namespace nashvilleBeer.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class BreweryController : ControllerBase

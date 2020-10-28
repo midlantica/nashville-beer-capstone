@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { UserProfileContext } from "../providers/UserProfileProvider";
-import { BreweryContext } from "../providers/BreweryProvider";
+import { BreweryContext, BreweryProvider } from "../providers/BreweryProvider";
 import Login from "./Login";
 import Register from "./Register";
 import BreweryList from "./BreweryList";
@@ -10,7 +10,7 @@ export default function ApplicationViews() {
   const { isLoggedIn } = useContext(UserProfileContext, BreweryContext);
 
   return (
-    <main className="mx-5">
+    <main>
       <Switch>
 
         <Route path="/" exact>

@@ -1,0 +1,41 @@
+button {
+  border-radius: 5px;
+  margin-top: 1rem;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid grey;
+  padding: 0.15rem 0.5rem;
+}
+
+button:first-of-type,
+select:first-of-type {
+  margin-top: 0;
+}
+
+.btnXXSmall {
+  font-size: xx-small !important;
+}
+
+.btnXSmall {
+  font-size: x-small !important;
+}
+
+.btnSmall {
+  font-size: small !important;
+}
+
+.btnMedium {
+  font-size: medium !important;
+}
+
+.btnLarge {
+  font-size: large !important;
+}
+
+.btnXLarge {
+  font-size: x-large !important;
+}
+
+.btnXXLarge {
+  font-size: xx-large !important;
+}

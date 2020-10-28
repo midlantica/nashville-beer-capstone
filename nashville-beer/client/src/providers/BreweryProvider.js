@@ -8,7 +8,6 @@ export const BreweryProvider = (props) => {
   const { getToken } = useContext(UserProfileContext);
 
   const [breweries, setBreweries] = useState([]);
-  const [unapprovedBreweries, setUnapprovedBreweries] = useState([]);
   const [brewery, setBrewery] = useState({});
 
   const getAllBreweries = () => {
@@ -32,17 +31,6 @@ export const BreweryProvider = (props) => {
       }).then((resp) => resp.json())
         .then(setBreweries));
   }
-
-  const getAllUnapprovedBreweries = () => {
-    getToken().then((token) =>
-      fetch(`${apiUrl}/unapproved`, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      }).then(resp => resp.json())
-        .then(setUnapprovedBreweries));
-  };
 
   const getById = (id) => {
     getToken().then((token) =>
@@ -97,8 +85,7 @@ export const BreweryProvider = (props) => {
 
   return (
     <BreweryContext.Provider value={{
-      brewery, breweries, getAllBreweries, getById, addBrewery, updateBrewery, deleteBrewery, setBrewery, getAllBreweriesByUser,
-      unapprovedBreweries, getAllUnapprovedBreweries
+      brewery, breweries, getAllBreweries, getById, addBrewery, updateBrewery, deleteBrewery, setBrewery, getAllBreweriesByUser
     }}>
       {props.children}
     </BreweryContext.Provider>

@@ -1,40 +1,49 @@
 import React, { useContext } from "react";
-import { BreweryContext } from "../providers/BreweryProvider";
-import { Card, CardBody, Button } from "reactstrap";
+import {
+  Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button, Badge, CardHeader
+} from 'reactstrap';
 import { Link, useHistory } from "react-router-dom";
 
 export default function Brewery({ brewery }) {
   const sessionUser = JSON.parse(sessionStorage.getItem("userProfile"));
   const defaultImage = 'placeholder.png';
-  const { updateBrewery } = useContext(BreweryContext);
   const history = useHistory();
 
-  const breweryObj = {
-    id: brewery.id,
-    title: brewery.title,
-    address: brewery.address,
-    website: brewery.website,
-    imageUrl: brewery.imageUrl,
-    established: brewery.established,
-    userProfileId: brewery.userProfileId,
-  };
-
-  if (sessionUser.userTypeId === 2 && brewery.userProfile.isActive === true) {
+  if (sessionUser.userTypeId === 1) {
     return (
       <>
-        <h1>Show me Breweries!!!</h1>
-        { breweryObj }
+        <Card className="dh-card_brewery">
+          <CardHeader>{brewery.title}</CardHeader>
+          <div className="pad1 dh-card-wrap">
+            <div className="dh-card-background"
+              style={{
+                backgroundImage: `url(${brewery.imageUrl})`,
+                backgroundPosition: 'center',
+                backgroundSize: 'contain',
+                backgroundRepeat: 'no-repeat'
+              }}
+            />
+          </div>
+          <CardBody>
+            <CardText>{brewery.address}</CardText>
+            <CardText><a href={brewery.website}>Link</a></CardText>
+            <CardText>Established: {brewery.established}</CardText>
+            {/* <Button>Button</Button> */}
+          </CardBody>
+        </Card>
       </>
     );
   }
-  else if (sessionUser.userTypeId === 1) {
+  else if (sessionUser.userTypeId === 2) {
     return (
       <>
-        <h1>else do this</h1>
+        <p>else do this</p>
+        <img src={defaultImage} alt="placeholder image" />
       </>
     );
   }
-  else {
+   else {
     return null
   }
 }

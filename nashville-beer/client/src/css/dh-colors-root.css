@@ -1,0 +1,25 @@
+/*
+  https://www.materialui.co/colors
+*/
+@import './colors/basics.css';
+@import './colors/transparents.css';
+@import './colors/amber.css';
+@import './colors/blue.css';
+@import './colors/blueGray.css';
+@import './colors/brown.css';
+@import './colors/cyan.css';
+@import './colors/deepOrange.css';
+@import './colors/deepPurple.css';
+@import './colors/gray.css';
+@import './colors/green.css';
+@import './colors/indigo.css';
+@import './colors/lightBlue.css';
+@import './colors/lightGreen.css';
+@import './colors/lime.css';
+@import './colors/orange.css';
+@import './colors/pink.css';
+@import './colors/purple.css';
+@import './colors/red.css';
+@import './colors/teal.css';
+@import './colors/yellow.css';
+@import './colors/primaries.css';

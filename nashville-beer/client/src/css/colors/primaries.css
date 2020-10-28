@@ -1,0 +1,24 @@
+/*
+  https://www.materialui.co/colors
+*/
+:root {
+  --red: var(--red500);
+  --pink: var(--pink500);
+  --purple: var(--purple500);
+  --deep-purple: var(--deep-purple500);
+  --indigo: var(--indigo500);
+  --blue: var(--blue500);
+  --light-blue: var(--light-blue500);
+  --cyan: var(--cyan500);
+  --teal: var(--teal500);
+  --green: var(--green500);
+  --light-green: var(--light-green500);
+  --lime: var(--lime500);
+  --yellow: var(--yellow500);
+  --amber: var(--amber500);
+  --orange: var(--orange500);
+  --deep-orange: var(--deep-orange500);
+  --brown: var(--brown500);
+  --gray: var(--gray500);
+  --blue-gray: var(--blue-gray500);
+}

@@ -1,0 +1,146 @@
+/*
+Wrap whole form in
+<div class="dh-Form">
+  <form></form>
+</div>
+And then all of these form fields labels inputs, texatareas etc should look good.
+*/
+
+:root {
+  --white: white;
+  --grey100: #f5f5f5;
+  --paleYellow: hsl(60, 100%, 89%);
+  --paleYellowTrans: hsla(60, 100%, 90%, 0.74);
+}
+
+.dh-Form {
+  background: white;
+  border: 1px solid var(--grey100);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.dh-Form h4 {
+  margin-top: 0.3em;
+  margin-bottom: 1em;
+}
+
+.dh-Form label {
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 1.15rem;
+  margin: 0.8rem 0 0.3em;
+  letter-spacing: 0.05ch;
+}
+
+.dh-Form label:first-of-type {
+  margin-top: 0rem;
+  margin-left: 0rem;
+  margin-right: 0rem;
+}
+
+.dh-Form label:hover input,
+.dh-Form label:hover textarea {
+  background: var(--paleYellow);
+  border-radius: 3px;
+}
+
+.dh-Form label:focus input,
+.dh-Form label:active input,
+.dh-Form label:focus textarea,
+.dh-Form label:active textarea {
+  background: var(--paleYellow);
+}
+
+.dh-Form label input,
+.dh-Form label textarea {
+  border: 1px solid var(--grey100);
+  margin-top: 0.3em;
+  padding: 0.5em 0.75em;
+  outline: none;
+  font-size: 0.85em;
+}
+
+.dh-Form label textarea {
+  border: 1px solid var(--grey100);
+  margin-top: 0.3em;
+}
+
+.dh-Form input {
+  height: 1.85em;
+  border-radius: 3px;
+}
+
+.dh-Form label:hover input,
+.dh-Form label:hover textarea {
+  background: var(--paleYellow);
+  border-radius: 3px;
+}
+
+.dh-Form textarea {
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.dh-Form input,
+.dh-Form textarea {
+  border: 1px solid var(--grey100);
+  /* margin-top: 0.3em; */
+  padding: 0.5em 0.75em;
+  outline: none;
+  font-size: 0.85em;
+}
+
+.dh-Form input:hover,
+.dh-Form textarea:hover {
+  border: 1px solid var(--grey100);
+  background: var(--paleYellowTrans);
+  cursor: pointer;
+}
+
+.dh-Form input:focus,
+.dh-Form textarea:focus {
+  border: 1px solid var(--grey100);
+  background: var(--paleYellowTrans);
+  cursor: text;
+}
+
+.dh-Form textarea {
+  border: 1px solid var(--grey100);
+}
+
+.dh-Form button {
+  padding: 0.5em 0.9em 0.5em;
+  font-size: 0.9em;
+  float: right;
+  width: fit-content;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+.dh-Form fieldset {
+  border: none !important;
+  padding: 0;
+  margin: 0;
+}
+
+select option {
+  text-transform: uppercase !important;
+}
+
+.dropdown {
+  height: 31px;
+  border-radius: 0px;
+  margin: 0;
+  width: 100% !important;
+  border-color: hsla(0, 0%, 55%, 0.25);
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.dropdown:hover {
+  background: var(--paleYellowTrans);
+}

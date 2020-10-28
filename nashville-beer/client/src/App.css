@@ -1,3 +1,5 @@
+@import './css/_dh-main.css';
+
 .App {
   text-align: center;
 }
@@ -35,4 +37,28 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+:root {
+  --dh-card-back: hsl(0deg 0% 87%);
+}
+
+.dh-card_brewery {
+  padding: 0rem;
+}
+
+.dh-card_brewery p {
+  font-size: .85rem;
+}
+
+.dh-card_brewery .dh-card-background {
+  background: var(--dh-card-back);
+  height: 200px;
+  max-height: 200px;
+  border-radius: 0px;
+}
+
+.dh-card-wrap {
+  padding: 1rem;
+  background: var(--dh-card-back);
 }

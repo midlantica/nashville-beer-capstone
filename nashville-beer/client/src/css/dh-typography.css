@@ -1,0 +1,147 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.03ch;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 1.5rem;
+  letter-spacing: 0.02ch;
+  text-align: left;
+}
+
+h2 {
+  font-size: 1.25rem;
+  letter-spacing: 0.01ch;
+  text-align: left;
+}
+
+h3 {
+  font-size: 1rem;
+  letter-spacing: 0ch;
+  text-align: left;
+}
+
+h4 {
+  font-size: 0.85rem;
+  letter-spacing: 0.01ch;
+  text-align: left;
+}
+
+h5 {
+  font-size: 0.75rem;
+  letter-spacing: 0.05ch;
+  text-align: left;
+}
+
+h6 {
+  font-size: 0.65rem;
+  letter-spacing: 0.07ch;
+  text-align: left;
+}
+
+p,
+ol,
+ul,
+li {
+  margin-top: 0;
+  margin-bottom: 0.3rem;
+  font-size: 1rem;
+  /* font-weight: 300; */
+  letter-spacing: 0.05ch;
+  line-height: 1.5;
+  -webkit-font-smoothing: auto;
+}
+
+h1:first-of-type,
+h2:first-of-type,
+h3:first-of-type,
+h4:first-of-type,
+h5:first-of-type,
+h6:first-of-type {
+  margin-top: 0;
+}
+
+p:first-of-type,
+ol:first-of-type,
+ul:first-of-type,
+li:first-of-type {
+  margin-top: 0;
+}
+
+p:last-of-type,
+ol:last-of-type,
+ul:last-of-type,
+li:last-of-type {
+  margin-bottom: 0;
+}
+
+.fs-small {
+  font-size: small;
+}
+
+.fs-smaller {
+  font-size: smaller;
+}
+
+.fs-x-small {
+  font-size: x-small;
+}
+
+.fs-xx-small {
+  font-size: xx-small;
+}
+
+.fs-large {
+  font-size: large;
+}
+
+.fs-larger {
+  font-size: larger;
+}
+
+.fs-x-large {
+  font-size: x-large;
+}
+
+.fs-xx-large {
+  font-size: xx-large;
+}
+
+.fw-normal {
+  font-weight: normal;
+}
+
+.fw-regular {
+  font-weight: regular;
+}
+
+.fw-bold {
+  font-weight: bold;
+}
+
+.fw-100 {
+  font-weight: 100;
+}
+
+.fw-200 {
+  font-weight: 200;
+}
+
+.fw-300 {
+  font-weight: 300;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.fw-500 {
+  font-weight: 500;
+}

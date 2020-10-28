@@ -1,0 +1,42 @@
+.panel {
+  border: 1px solid var(--grey-100);
+  padding: 0.75em 1em;
+  background: white;
+  border-radius: 3px;
+  font-weight: 100;
+  font-size: 1em;
+  box-shadow: 0px 2px 10px -10px black;
+  /* margin-bottom: 0.75rem; */
+}
+
+.panel:last-of-type {
+  margin-bottom: 0rem;
+}
+
+.panel table {
+  width: 100%;
+}
+
+.panel td {
+  color: var(--grey-400);
+  font-size: 0.9em;
+  font-weight: 100;
+  margin: 0;
+  line-height: 1.25;
+  vertical-align: top;
+  /* min-width: 9em; */
+}
+
+.panel td:first-of-type {
+  width: 40%;
+}
+
+.panel td:first-of-type {
+  color: var(--grey-400);
+}
+
+.panel button {
+  font-size: 0.8rem;
+  margin-top: 0.5em !important;
+  margin-bottom: 0.25em !important;
+}

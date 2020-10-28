@@ -1,40 +1,41 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import Brewery from "./Brewery";
 import { BreweryContext } from "../providers/BreweryProvider";
-import { Card, CardBody, Button } from "reactstrap";
 import { Link, useHistory } from "react-router-dom";
 
-export default function Brewery({ brewery }) {
-  const sessionUser = JSON.parse(sessionStorage.getItem("userProfile"));
-  const defaultImage = 'placeholder.png';
-  //const { updateBrewery } = useContext(BreweryContext);
-  const history = useHistory();
+export default function BreweryList() {
 
-  const breweryObj = {
-    //id: brewery.id,
-    title: brewery.title,
-    address: brewery.address,
-    website: brewery.website,
-    imageUrl: brewery.imageUrl,
-    established: brewery.established,
-    userProfileId: brewery.userProfileId,
-  };
+  const { getAllBreweries, breweries } = useContext(BreweryContext)
+  const sessionUser = JSON.parse(sessionStorage.getItem("userProfile"))
+  const [userTypeId, setUserTypeId] = useState()
 
-  if (sessionUser.userTypeId === 2) {
-    return (
-      <>
-        <h1>Show me Breweries!!!</h1>
-        { breweryObj }
-      </>
-    );
-  }
-  else if (sessionUser.userTypeId === 1) {
-    return (
-      <>
-        <h1>else do this</h1>
-      </>
-    );
-  }
-  else {
-    return null
-  }
+  useEffect(() => {
+    setUserTypeId(sessionUser.userTypeId)
+    getAllBreweries()
+  }, [])
+
+  return (
+    <>
+      { userTypeId === 1 ?
+      <div>
+        <h2 className="marb1">Breweries - Admin</h2>
+        <section className="gridAuto">
+          {breweries.map(b =>
+            <Brewery key={b.id} brewery={b} />
+          )}
+        </section>
+      </div>
+    :
+      <section className="gridAuto">
+        <p>Breweries - public user</p>
+        <div>
+          {breweries.map(b =>
+            <Brewery key={b.id} brewery={b} />
+          )}
+        </div>
+      </section>
+      }
+    </>
+  )
+
 }

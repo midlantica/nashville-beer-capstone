@@ -1,0 +1,17 @@
+.outline {
+  outline: initial !important;
+  box-shadow: none;
+}
+
+.outline-none {
+  outline: none !important;
+  box-shadow: none;
+}
+
+.outline-none:hover,
+.outline-none:focus,
+.outline-none:active {
+  outline: none !important;
+  box-shadow: none;
+  border-color: none;
+}

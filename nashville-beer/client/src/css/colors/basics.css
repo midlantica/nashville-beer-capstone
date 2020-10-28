@@ -1,0 +1,16 @@
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  /* Bootstrap base colors */
+  --primary: #007bff !important;
+  --success: #28a745 !important;
+  --info: #17a2b8 !important;
+  --warning: #ffc107 !important;
+  --danger: #dc3545 !important;
+  --secondary: #6c757d !important;
+  --tertiary: rgb(137, 143, 146) !important;
+  --muted: #6c757d !important;
+  --light: #f8f9fa !important;
+  --dark: #212529 !important;
+  --transparent: transparent !important;
+}

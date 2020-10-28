@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using nashvilleBeer.Models;
+using nashvilleBeer.Utils;
 
 namespace nashvilleBeer.Repositories
 {
-
     public class BreweryRepository : BaseRepository, IBreweryRepository
     {
         public BreweryRepository(IConfiguration config) : base(config) { }
@@ -20,25 +20,26 @@ namespace nashvilleBeer.Repositories
                 conn.Open();
                 using (var cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = @"SELECT id, [Title]
-                                    FROM Brewery
-                                    ORDER BY Title ASC";
+                    cmd.CommandText = @"SELECT Id, Title, Address, Website, ImageUrl, Established 
+                                        FROM Brewery";
 
                     var reader = cmd.ExecuteReader();
 
                     var breweries = new List<Brewery>();
-
                     while (reader.Read())
                     {
                         breweries.Add(new Brewery()
                         {
                             Id = reader.GetInt32(reader.GetOrdinal("Id")),
                             Title = reader.GetString(reader.GetOrdinal("Title")),
+                            Address = reader.GetString(reader.GetOrdinal("Address")),
+                            Website = reader.GetString(reader.GetOrdinal("Website")),
+                            ImageUrl = reader.GetString(reader.GetOrdinal("ImageUrl")),
+                            Established = reader.GetString(reader.GetOrdinal("Established")),
                         });
                     }
 
                     reader.Close();
-
                     return breweries;
                 }
             }

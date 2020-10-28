@@ -37,7 +37,7 @@ CREATE TABLE [Brewery] (
   [Address] nvarchar(511) NOT NULL,
   [Website] nvarchar(511) NOT NULL,
   [ImageUrl] nvarchar(511) NOT NULL,
-  [Established] int
+  [Established] nvarchar(25) NOT NULL
 )
 GO
 

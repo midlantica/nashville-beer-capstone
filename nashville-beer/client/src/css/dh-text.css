@@ -1,0 +1,31 @@
+.toLowerCase {
+  text-transform: lowercase !important;
+}
+
+.toUpperCase {
+  text-transform: uppercase !important;
+}
+
+.toCapitalize {
+  text-transform: capitalize !important;
+}
+
+.toInitialCase {
+  text-transform: initial !important;
+}
+
+.text-initial {
+  text-align: initial !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
