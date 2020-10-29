@@ -19,7 +19,7 @@ INSERT INTO UserProfile(Id,Username,Email,FirebaseUserId,UserTypeId) VALUES (7, 
 SET IDENTITY_INSERT [UserProfile] OFF
 
 SET IDENTITY_INSERT [Brewery] ON
-INSERT INTO Brewery(Id,[Title],[Address],[Website],ImageUrl,Established) VALUES (1,'Bearded Iris Brewing','101 Van Buren St., Nashville, Tennessee 37208','https://beardedirisbrewing.com/', 'https://www.pngkit.com/png/full/336-3361660_bearded-iris-2018-approved-logo-bearded-iris-brewing.png','2016');
+INSERT INTO Brewery(Id,[Title],[Address],[Website],ImageUrl,Established) VALUES (1,'Bearded Iris Brewing','101 Van Buren St., Nashville, TN 37208','https://beardedirisbrewing.com/', 'https://www.pngkit.com/png/full/336-3361660_bearded-iris-2018-approved-logo-bearded-iris-brewing.png','2016');
 INSERT INTO Brewery(Id,[Title],[Address],[Website],ImageUrl,Established) VALUES (2,'Blackstone','2312 Clifton Ave, Nashville TN 37209','https://blackstonebeer.com/','https://brewcruizer.com/custom/domain_1/image_files/sitemgr_photo_18898.jpg','1994');
 INSERT INTO Brewery(Id,[Title],[Address],[Website],ImageUrl,Established) VALUES (3,'Czann’s','505 Lea Ave, Nashville, TN 37203','http://www.czanns.com/','https://icdn.bottlenose.wine/images/full/528403.jpg','2011');
 INSERT INTO Brewery(Id,[Title],[Address],[Website],ImageUrl,Established) VALUES (4,'East Nashville Beer Works','320 E. Trinity Lane, Nashville, TN 37207','http://eastnashbeerworks.com/','https://eastnashbeerworks.com/assets/images/home/logo2.png','2020');

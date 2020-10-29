@@ -14,7 +14,7 @@ export default function Beers({ beer }) {
     return (
       <>
         <Card className="dh-card_beer">
-          <CardHeader>{beer.title}</CardHeader>
+          <CardHeader>{beer.name}</CardHeader>
           <div className="pad1 dh-card-wrap">
             <div className="dh-card-background"
               style={{
@@ -26,9 +26,9 @@ export default function Beers({ beer }) {
             />
           </div>
           <CardBody>
-            <CardText>{beer.address}</CardText>
-            <CardText><a href={beer.website}>Link</a></CardText>
-            <CardText>Established: {beer.established}</CardText>
+            <CardText>{beer.style}</CardText>
+            <CardText><a href={beer.abv}>Link</a></CardText>
+            <CardText>Established: {beer.ibu}</CardText>
             {/* <Button>Button</Button> */}
           </CardBody>
         </Card>

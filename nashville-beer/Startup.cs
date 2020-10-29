@@ -30,7 +30,7 @@ namespace nashvilleBeer
         {
             services.AddTransient<IUserProfileRepository, UserProfileRepository>();
             services.AddTransient<IBreweryRepository, BreweryRepository>();
-            //services.AddTransient<IBeerRepository, BeerRepository>();
+            services.AddTransient<IBeerRepository, BeerRepository>();
             //services.AddTransient<ICommentsRepository, CommentsRepository>();
 
 

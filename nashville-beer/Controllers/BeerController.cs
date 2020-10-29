@@ -10,7 +10,7 @@ using nashvilleBeer.Models;
 
 namespace nashvilleBeer.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class BeerController : ControllerBase
@@ -30,10 +30,11 @@ namespace nashvilleBeer.Controllers
             return Ok(beers);
         }
 
-        [HttpGet]
-        public IActionResult Get(Beer beer)
+        [HttpGet("GetAllBeersFromBrewery/{id}")]
+        //[Route("api/[controller]/beers")]
+        public IActionResult GetAllBeersFromBrewery(int id)
         {
-            var beers = _beerRepository.GetAllBeersFromBrewery();
+            var beers = _beerRepository.GetAllBeersFromBrewery(id);
             return Ok(beers);
         }
 

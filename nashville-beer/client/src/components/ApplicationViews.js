@@ -8,7 +8,7 @@ import BreweryList from "./BreweryList";
 import BreweryBeersList from "./BreweryBeersList";
 
 export default function ApplicationViews() {
-  const { isLoggedIn } = useContext(UserProfileContext, BreweryContext);
+  const { isLoggedIn } = useContext(UserProfileContext);
 
   return (
     <main>
@@ -17,6 +17,10 @@ export default function ApplicationViews() {
         <Route path="/" exact>
           {isLoggedIn ? <BreweryList /> : <Redirect to="/login" />}
         </Route>
+
+        {/* <Route path="/GetAllBeersFromBrewery/:id" exact>
+          {isLoggedIn ? <BreweryBeersList /> : <Redirect to="/login" />}
+        </Route> */}
 
         <Route path="/brewery/:id" exact>
           {isLoggedIn ? <BreweryBeersList /> : <Redirect to="/login" />}

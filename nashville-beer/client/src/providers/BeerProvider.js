@@ -23,7 +23,7 @@ export const BeerProvider = (props) => {
 
   const getAllBeersFromBrewery = (id) => {
     return getToken().then((token) =>
-      fetch(`/api/beer/${id}`, {
+      fetch(`/api/beer/GetAllBeersFromBrewery/${id}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`
