@@ -43,6 +43,41 @@ namespace nashvilleBeer.Repositories
                 }
             }
         }
+public List<Beer> GetAllBeersFromBrewery()
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"SELECT br.id, br.BreweryId, br.Name, br.Type, br.Abv, br.Ibu, br.ImageUrl
+                                        FROM Beer br 
+                                        LEFT JOIN Brewery b ON br.BreweryId = b.Id
+                                        WHERE b.Id = @id";
+
+                    var reader = cmd.ExecuteReader();
+
+                    var beers = new List<Beer>();
+
+                    while (reader.Read())
+                    {
+                        beers.Add(new Beer()
+                        {
+                            Id = reader.GetInt32(reader.GetOrdinal("Id")),
+                            Name = reader.GetString(reader.GetOrdinal("Name")),
+                            Type = reader.GetString(reader.GetOrdinal("Type")),
+                            Abv = reader.GetInt32(reader.GetOrdinal("Abv")),
+                            Ibu = reader.GetInt32(reader.GetOrdinal("Ibu")),
+                            ImageUrl = reader.GetString(reader.GetOrdinal("ImageUrl")),
+                        });
+                    }
+
+                    reader.Close();
+
+                    return beers;
+                }
+            }
+        }
 
         public Beer GetBeerById(int id)
         {

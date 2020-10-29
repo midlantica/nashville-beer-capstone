@@ -27,14 +27,6 @@
 .padB0      { padding-bottom: 0rem !important; }
 .padLR0     { padding-left:   0rem !important; padding-right: 0 !important; }
 .padTB0     { padding-top:    0rem !important; padding-bottom: 0 !important; }
-/* // -> 5 REM */
-.padH       { padding:        0.5rem !important; }
-.padLH      { padding-left:   0.5rem !important; }
-.padRH      { padding-right:  0.5rem !important; }
-.padTH      { padding-top:    0.5rem !important; }
-.padBH      { padding-bottom: 0.5rem !important; }
-.padLRH     { padding-left:   0.5rem !important; padding-right: 0.5rem !important; }
-.padTBH     { padding-top:    0.5rem !important; padding-bottom: 0.5rem !important; }
 /* // -> 0.25 REM */
 .padQ       { padding:        0.25rem !important; }
 .padLQ      { padding-left:   0.25rem !important; }
@@ -43,11 +35,27 @@
 .padBQ      { padding-bottom: 0.25rem !important; }
 .padLRQ     { padding-left:   0.25rem !important; padding-right: 0.25rem !important; }
 .padTBQ     { padding-top:    0.25rem !important; padding-bottom: 0.25rem !important; }
+/* // -> 5 REM */
+.padH       { padding:        0.5rem !important; }
+.padLH      { padding-left:   0.5rem !important; }
+.padRH      { padding-right:  0.5rem !important; }
+.padTH      { padding-top:    0.5rem !important; }
+.padBH      { padding-bottom: 0.5rem !important; }
+.padLRH     { padding-left:   0.5rem !important; padding-right: 0.5rem !important; }
+.padTBH     { padding-top:    0.5rem !important; padding-bottom: 0.5rem !important; }
+/* // -> 0.75 REM */
+.pad3Q     { padding:        0.75rem !important; }
+.padL3Q     { padding-left:   0.75rem !important; }
+.padR3Q     { padding-right:  0.75rem !important; }
+.padT3Q     { padding-top:    0.75rem !important; }
+.padB3Q     { padding-bottom: 0.75rem !important; }
+.padLR3Q     { padding-left:   0.75rem !important; padding-right: 0.75rem !important; }
+.padTB3Q     { padding-top:    0.75rem !important; padding-bottom: 0.75rem !important; }
 /* // -> 1 REM */
 .pad1       { padding:        1rem !important; }
 .padL1      { padding-left:   1rem !important; }
 .padR1      { padding-right:  1rem !important; }
-.padT1      { padding-top:    1rem !important; }
+.padT1      { padding-to:    1rem !important; }
 .padB1      { padding-bottom: 1rem !important; }
 .padLR1     { padding-left:   1rem !important; padding-right: 1rem !important; }
 .padTB1     { padding-top:    1rem !important; padding-bottom: 1rem !important; }
@@ -59,6 +67,7 @@
 .padB1H     { padding-bottom: 1.5rem !important; }
 .padLR1H    { padding-left:   1.5rem !important; padding-right: 1.5rem !important; }
 .padTB1H    { padding-top:    1.5rem !important; padding-bottom: 1.5rem !important; }
+
 /* // -> 2 REM */
 .pad2       { padding:        2rem !important; }
 .padL2      { padding-left:   2rem !important; }

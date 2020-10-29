@@ -7,6 +7,7 @@ namespace nashvilleBeer.Repositories
     public interface IBeerRepository
     {
         List<Beer> GetAllBeers();
+        List<Beer> GetAllBeersFromBrewery();
         Beer GetBeerById(int id);
         void DeleteBeer(int id);
         void UpdateBeer(Beer beer);

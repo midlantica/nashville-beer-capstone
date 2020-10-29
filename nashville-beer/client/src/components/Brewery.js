@@ -13,25 +13,33 @@ export default function Brewery({ brewery }) {
   if (sessionUser.userTypeId === 1) {
     return (
       <>
-        <Card className="dh-card_brewery">
-          <CardHeader>{brewery.title}</CardHeader>
-          <div className="pad1 dh-card-wrap">
-            <div className="dh-card-background"
-              style={{
-                backgroundImage: `url(${brewery.imageUrl})`,
-                backgroundPosition: 'center',
-                backgroundSize: 'contain',
-                backgroundRepeat: 'no-repeat'
-              }}
-            />
-          </div>
-          <CardBody>
-            <CardText>{brewery.address}</CardText>
-            <CardText><a href={brewery.website}>Link</a></CardText>
-            <CardText>Established: {brewery.established}</CardText>
-            {/* <Button>Button</Button> */}
-          </CardBody>
-        </Card>
+          <Card className="dh-card_brewery" >
+            <a href={`brewery/${brewery.id}`}>
+              <CardHeader>{brewery.title}</CardHeader>
+              <div className="pad1 dh-card-wrap">
+                <div className="dh-card-background"
+                  style={{
+                    backgroundImage: `url(${brewery.imageUrl})`,
+                    backgroundPosition: 'center',
+                    backgroundSize: 'contain',
+                    backgroundRepeat: 'no-repeat'
+                  }}
+                />
+              </div>
+              <CardBody>
+                <CardText>{brewery.address}</CardText>
+                <CardText>Established: {brewery.established}</CardText>
+                <Badge color="secondary"
+                  pill
+                  href={brewery.website}
+                  className="toUpperCase padH padLR3Q marTH light"
+                  target="_blank"
+                >website
+                </Badge>
+                {/* <Button>Button</Button> */}
+              </CardBody>
+            </a>
+          </Card>
       </>
     );
   }

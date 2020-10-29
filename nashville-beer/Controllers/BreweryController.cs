@@ -30,7 +30,6 @@ namespace nashvilleBeer.Controllers
             return Ok(breweries);
         }
 
-
         [HttpGet("{id}")]
         public ActionResult Get(int id)
         {

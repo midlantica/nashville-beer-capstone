@@ -27,6 +27,14 @@
   color: var(--secondary) !important;
 }
 
+.dark {
+  color: var(--dark) !important;
+}
+
+.light {
+  color: var(--light) !important;
+}
+
 /* backgrounds */
 .bg-primary {
   background-color: var(--primary) !important;

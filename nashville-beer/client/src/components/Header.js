@@ -18,7 +18,7 @@ export default function Header() {
 
   return (
     <div>
-      <Navbar color="dark" dark expand="md">
+      <Navbar color="info" dark expand="md">
         <NavbarBrand tag={RRNavLink} to="/">Nashville Breweries</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>

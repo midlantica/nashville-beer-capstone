@@ -1,16 +1,16 @@
 import React, { useState, useContext } from "react";
 import { UserProfileContext } from "./UserProfileProvider";
 
-export const BreweryContext = React.createContext();
+export const BeerContext = React.createContext();
 
-export const BreweryProvider = (props) => {
-  const apiUrl = "/api/brewery";
+export const BeerProvider = (props) => {
+  const apiUrl = "/api/beers";
   const { getToken } = useContext(UserProfileContext);
 
-  const [breweries, setBreweries] = useState([]);
-  const [brewery, setBrewery] = useState({});
+  const [beers, setBeers] = useState([]);
+  const [beer, setBeer] = useState({});
 
-  const getAllBreweries = () => {
+  const getAllBeers = () => {
     getToken().then((token) =>
       fetch(apiUrl, {
         method: "GET",
@@ -18,51 +18,51 @@ export const BreweryProvider = (props) => {
           Authorization: `Bearer ${token}`
         }
       }).then(resp => resp.json())
-        .then(setBreweries));
+        .then(setBeers));
   };
 
-  const getAllBreweryBeers = (id) => {
+  const getAllBeersFromBrewery = (id) => {
     return getToken().then((token) =>
-      fetch(`/api/brewery/beer/${id}`, {
+      fetch(`/api/beer/${id}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`
         }
       }).then((resp) => resp.json())
-        .then(setBreweries));
+        .then(setBeers));
   }
 
-    const getAllBreweriesByUser = (id) => {
+    const getAllBeersByUser = (id) => {
     return getToken().then((token) =>
-      fetch(`/api/brewery/beer/${id}`, {
+      fetch(`/api/beer/beer/${id}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`
         }
       }).then((resp) => resp.json())
-        .then(setBreweries));
+        .then(setBeers));
   }
 
   const getById = (id) => {
     getToken().then((token) =>
-      fetch(`/api/brewery/${id}`, {
+      fetch(`/api/beer/${id}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`
         }
       })).then((resp) => resp.json())
-      .then(setBrewery);
+      .then(setBeer);
   };
 
-  const addBrewery = (brewery) => {
+  const addBeer = (beer) => {
     return getToken().then((token) =>
-      fetch("/api/brewery", {
+      fetch("/api/beer", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(brewery)
+        body: JSON.stringify(beer)
       }).then(resp => {
         if (resp.ok) {
           return resp.json();
@@ -71,21 +71,21 @@ export const BreweryProvider = (props) => {
       }))
   };
 
-  const updateBrewery = (id, brewery) => {
+  const updateBeer = (id, beer) => {
     return getToken().then((token) =>
-      fetch(`/api/brewery/edit/${id}`, {
+      fetch(`/api/beer/edit/${id}`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(brewery)
+        body: JSON.stringify(beer)
       }))
   };
 
-  const deleteBrewery = (id) =>
+  const deleteBeer = (id) =>
     getToken().then((token) =>
-      fetch(`/api/brewery/delete/${id}`, {
+      fetch(`/api/beer/delete/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -95,11 +95,11 @@ export const BreweryProvider = (props) => {
       }))
 
   return (
-    <BreweryContext.Provider value={{
-      brewery, breweries, getAllBreweries, getAllBreweryBeers, getById, addBrewery, updateBrewery, deleteBrewery, setBrewery, getAllBreweriesByUser
+    <BeerContext.Provider value={{
+      beer, beers, getAllBeers, getAllBeersFromBrewery, getById, addBeer, updateBeer, deleteBeer, setBeer, getAllBeersByUser
     }}>
       {props.children}
-    </BreweryContext.Provider>
+    </BeerContext.Provider>
   );
 
 }
