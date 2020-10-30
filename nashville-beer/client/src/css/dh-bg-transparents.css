@@ -1,0 +1,36 @@
+.transW-100 {
+  background: var(--trans-white100) !important;
+}
+
+.transW-200 {
+  background: var(--trans-white200) !important;
+}
+.transW-300 {
+  background: var(--trans-white300) !important;
+}
+
+.transW-400 {
+  background: var(--trans-white400) !important;
+}
+.transW-500 {
+  background: var(--trans-white500) !important;
+}
+
+.transB-100 {
+  background: var(--trans-black100) !important;
+}
+
+.transB-200 {
+  background: var(--trans-black200) !important;
+}
+.transB-300 {
+  background: var(--trans-black300) !important;
+}
+
+.transB-400 {
+  background: var(--trans-black400) !important;
+}
+.transB-500 {
+  background: var(--trans-black500) !important;
+}
+

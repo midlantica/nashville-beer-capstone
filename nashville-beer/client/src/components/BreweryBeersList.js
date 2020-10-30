@@ -35,10 +35,6 @@ export default function BreweryBeersList() {
     <>
       { userTypeId === 1 ?
         <div>
-          <div className="flexRow marB1">
-            <h4 className="marB1 ">Brewery X </h4>
-            <button className="align-i-flex-end marL2">Admin</button>
-          </div>
 
           <section className="dh-grid_breweryBeers">
             <div>

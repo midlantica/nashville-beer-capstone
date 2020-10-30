@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { NavLink as RRNavLink } from "react-router-dom";
 import {
-  Button, Form, FormGroup, Label, Input, FormText
+  Button, Form, FormGroup, Label, Input, FormText, Badge
 } from 'reactstrap';
 import { UserProfileContext } from "../providers/UserProfileProvider";
 import Brewery from "./Brewery";
@@ -27,37 +27,36 @@ export default function Admin() {
     { userTypeId === 1 ?
 
       <section>
-          <h3>Admin</h3>
-          <div className="gridAuto">
+          <h4>Admin</h4>
+          <div className="dh-form-grid">
 
             <div className="sidebar">
 
-              <div className="d-flex mt-4 mb-2">
-                <h5>Breweries</h5>
-                <Button color="secondary ml-3" size="sm" to="AddBrewery">Add</Button>
-              </div>
-
-              <ul>
-                <li className="selected">Brewery.title</li>
-                <li>Brewery.title</li>
-                <li>Brewery.title</li>
-
-                <div className="d-flex mt-4 mb-2">
-                  <h5>Beers</h5>
-                  <Button color="secondary ml-3" size="sm" to="AddBeer">Add</Button>
+              <ul className="dh-admin-breweries">
+                <div className="d-flex mt-3">
+                  <h6 className="mb-1">Breweries</h6>
+                  <Badge color="secondary" size="sm" to="AddBrewery">＋</Badge>
                 </div>
-                <ul>
+                <li>Brewery.title</li>
+                <li className="selected">Brewery.title</li>
+                <ul className="dh-admin-beers mb-1">
+                  <div className="d-flex mt-1">
+                    <h6 className="mb-1">Beers</h6>
+                    <Badge color="secondary" size="sm" to="AddBeer">＋</Badge>
+                  </div>
                   <li>Beer.name</li>
                   <li className="selected">Beer.name</li>
                   <li>Beer.name</li>
                 </ul>
+                <li>Brewery.title</li>
+
               </ul>
 
             </div>
 
             <div className="content">
               <h4>Brewery</h4>
-              <Form>
+              <Form style={{ maxWidth: "600px", minWidth: "300px"}}>
 
                 <FormGroup>
                   <Label for="name">Name</Label>
