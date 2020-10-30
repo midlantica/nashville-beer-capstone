@@ -10,6 +10,7 @@ export default function Beers({ beer }) {
   const defaultImage = 'placeholder.png';
   const history = useHistory();
 
+
   if (sessionUser.userTypeId === 1) {
     return (
       <>

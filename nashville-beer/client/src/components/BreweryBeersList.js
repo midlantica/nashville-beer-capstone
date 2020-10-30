@@ -29,7 +29,7 @@ export default function BreweryBeersList() {
     setBrewery(breweries.find((brewery) => brewery.id == id))
   }
 
-  //console.log(brewery, breweries, beers)
+  console.log(brewery, breweries, beers)
 
   return (
     <>

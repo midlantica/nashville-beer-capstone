@@ -10,8 +10,9 @@ import {
   NavLink
 } from 'reactstrap';
 import { UserProfileContext } from "../providers/UserProfileProvider";
-
+import { Link, useParams, useHistory } from "react-router-dom";
 export default function Header() {
+  const { id } = useParams();
   const { isLoggedIn, logout } = useContext(UserProfileContext);
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
@@ -28,6 +29,9 @@ export default function Header() {
                 <NavItem>
                   <a aria-current="page" className="nav-link"
                     style={{ cursor: "pointer" }} onClick={logout}>Logout</a>
+                </NavItem>
+                <NavItem>
+                  <NavLink tag={RRNavLink} to="/admin/:id">Admin</NavLink>
                 </NavItem>
               </>
             }

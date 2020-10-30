@@ -17,31 +17,20 @@ export default function BreweryList() {
   return (
     <>
       { userTypeId === 1 ?
-        <div>
 
-          <div className="flexRow marB1">
-            <h4 className="marB1 ">{breweries.id}</h4>
-            <button className="align-i-flex-end">Admin</button>
-          </div>
-
-          <section className="dh-grid_breweries">
-            {breweries.map(b =>
-              <Brewery key={b.id} brewery={b} />
-            )}
-          </section>
-
-        </div>
+        <section className="gridAuto">
+          {breweries.map(b =>
+            <Brewery key={b.id} brewery={b} />
+          )}
+        </section>
 
       :
 
         <section className="gridAuto">
-        <p>Breweries - public user</p>
-        <div>
           {breweries.map(b =>
             <Brewery key={b.id} brewery={b} />
           )}
-        </div>
-      </section>
+        </section>
       }
     </>
   )
