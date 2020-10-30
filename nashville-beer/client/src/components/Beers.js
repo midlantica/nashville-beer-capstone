@@ -26,9 +26,9 @@ export default function Beers({ beer }) {
             />
           </div>
           <CardBody>
-            <CardText>{beer.style}</CardText>
-            <CardText><a href={beer.abv}>Link</a></CardText>
-            <CardText>Established: {beer.ibu}</CardText>
+            <CardText>Style: {beer.type}</CardText>
+            <CardText>ABV: {beer.abv}</CardText>
+            <CardText>IBU: {beer.ibu}</CardText>
             {/* <Button>Button</Button> */}
           </CardBody>
         </Card>

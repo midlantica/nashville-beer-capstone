@@ -14,7 +14,7 @@ export default function Brewery({ brewery }) {
     return (
       <>
           <Card className="dh-card_brewery" >
-            <a href={`brewery/${brewery.id}`}>
+            <Link to={`brewery/${brewery.id}`}>
               <CardHeader>{brewery.title}</CardHeader>
               <div className="pad1 dh-card-wrap">
                 <div className="dh-card-background"
@@ -38,7 +38,7 @@ export default function Brewery({ brewery }) {
                 </Badge>
                 {/* <Button>Button</Button> */}
               </CardBody>
-            </a>
+            </Link>
           </Card>
       </>
     );

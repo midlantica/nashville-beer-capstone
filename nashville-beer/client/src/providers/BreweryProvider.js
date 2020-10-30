@@ -43,7 +43,7 @@ export const BreweryProvider = (props) => {
         .then(setBreweries));
   }
 
-  const getById = (id) => {
+  const getBreweryById = (id) => {
     getToken().then((token) =>
       fetch(`/api/brewery/${id}`, {
         method: "GET",
@@ -96,7 +96,7 @@ export const BreweryProvider = (props) => {
 
   return (
     <BreweryContext.Provider value={{
-      brewery, breweries, getAllBreweries, getAllBreweryBeers, getById, addBrewery, updateBrewery, deleteBrewery, setBrewery, getAllBreweriesByUser
+      brewery, breweries, getAllBreweries, getAllBreweryBeers, getBreweryById, addBrewery, updateBrewery, deleteBrewery, setBrewery, getAllBreweriesByUser
     }}>
       {props.children}
     </BreweryContext.Provider>

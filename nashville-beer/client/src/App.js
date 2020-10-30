@@ -14,7 +14,7 @@ function App() {
         <BreweryProvider>
           <BeerProvider>
             <Header />
-              <div className="container mt-3">
+              <div className="container mt-3 mb-5">
                 <ApplicationViews />
             </div>
           </BeerProvider>

@@ -28,30 +28,6 @@
   flex-wrap: wrap;
 }
 
-article.flexRow {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-section.flexRow {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-article.flexColumn {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-
-section.flexColumn {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-
 /*  */
 .flex-grow-1 {
   flex-grow: 1;

@@ -3,7 +3,7 @@
 */
 @import './colors/basics.css';
 @import './colors/transparents.css';
-@import './colors/amber.css';
+/* @import './colors/amber.css';
 @import './colors/blue.css';
 @import './colors/blueGray.css';
 @import './colors/brown.css';
@@ -21,5 +21,5 @@
 @import './colors/purple.css';
 @import './colors/red.css';
 @import './colors/teal.css';
-@import './colors/yellow.css';
+@import './colors/yellow.css'; */
 @import './colors/primaries.css';
