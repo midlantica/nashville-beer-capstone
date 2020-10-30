@@ -146,6 +146,30 @@ a.badge-secondary:hover {
   color: var(--brand);
 }
 
+.dh-admin-breweries h1 {
+  font-size: 1.75rem;
+}
+
+.dh-admin-breweries h2 {
+  font-size: 1.5rem;
+}
+
+.dh-admin-breweries h3 {
+  font-size: 1.25rem;
+}
+
+.dh-admin-breweries h4 {
+  font-size: 1.15rem;
+}
+
+.dh-admin-breweries h5 {
+  font-size: 1rem;
+}
+
+.dh-admin-breweries h6 {
+  font-size: .85rem;
+}
+
 .dh-admin-breweries .badge, .dh-admin-beers .badge {
   height: 1.25rem;
   padding: 0.0rem 0rem;
@@ -158,7 +182,29 @@ a.badge-secondary:hover {
   background: var(--gray500);
 }
 
-.dh-admin-breweries .badge:hover, .dh-admin-beers .badge:hover {
+.dh-admin-breweries .selected .badge.dh-add {
+  height: 1.25rem;
+  /* padding: 0.0rem 0rem; */
+  font-size: 1.3rem;
+  line-height: 0.8;
+  font-weight: 300;
+  border-radius: 2rem;
+  cursor: pointer;
+  margin-left: .5rem;
+  background: var(--gray500);
+  font-style: normal;
+  width: 1rem;
+  text-align: center;
+  padding: 0rem 0.5rem 0 0.8rem;
+}
+
+.dh-admin-breweries .badge.dh-add:hover,
+.dh-admin-beers .badge:hover {
+  background: var(--gray700);
+  font-style: normal;
+}
+
+.dh-admin-breweries .selected .badge:hover {
   background: var(--gray700);
 }
 
@@ -176,17 +222,34 @@ ul.dh-admin-breweries li {
   font-size: .85rem;
 }
 
+ul.dh-admin-breweries li {
+  text-indent: -1em;
+  padding-left: 3em;
+  font-size: .85rem;
+}
+
+ul.dh-admin-breweries li a {
+  color: var(--gray700);
+}
+
+ul.dh-admin-breweries li a:hover {
+  color: var(--black800);
+  text-decoration: none;
+  /* font-weight: 600; */
+}
+
 ul.dh-admin-breweries li:before {
-  content: "🏭";
+  content: "🏬";
   position: absolute;
   font-style: normal;
   left: 1rem;
 }
 
 ul.dh-admin-breweries li.selected, ul.dh-admin-breweries li.selected a {
-  color: var(--brand);
-  font-weight: 400;
+  color: var(--black800);
+  font-weight: 600;
   font-style: italic;
+  text-decoration: none;
 }
 
 ul.dh-admin-beers {
@@ -195,12 +258,29 @@ ul.dh-admin-beers {
   margin-left: 1rem;
   padding-left: 0em;
   text-indent: 0em;
+  margin-bottom: .5rem;
 }
 
 ul.dh-admin-beers li {
   text-indent: -1em;
   padding-left: 3em;
   font-size: .85rem;
+}
+
+ul.dh-admin-beers li {
+  text-indent: -1em;
+  padding-left: 3em;
+  font-size: .85rem;
+}
+
+ul.dh-admin-beers li a {
+  color: var(--gray700);
+}
+
+ul.dh-admin-beers li a:hover {
+  color: var(--black800);
+  text-decoration: none;
+  /* font-weight: 600; */
 }
 
 ul.dh-admin-beers li:before {
@@ -211,7 +291,8 @@ ul.dh-admin-beers li:before {
 }
 
 ul.dh-admin-beers li.selected, ul.dh-admin-beers li.selected a {
-  color: var(--brand);
-  font-weight: 400;
+  color: var(--black800);
+  font-weight: 600;
   font-style: italic;
+  text-decoration: none;
 }

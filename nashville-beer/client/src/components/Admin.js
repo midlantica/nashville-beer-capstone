@@ -35,20 +35,21 @@ export default function Admin() {
               <ul className="dh-admin-breweries">
                 <div className="d-flex mt-3">
                   <h6 className="mb-1">Breweries</h6>
-                  <Badge color="secondary" size="sm" to="AddBrewery">＋</Badge>
+                  <Badge color="secondary dh-add" size="sm" to="AddBrewery">＋</Badge>
                 </div>
-                <li>Brewery.title</li>
-                <li className="selected">Brewery.title</li>
-                <ul className="dh-admin-beers mb-1">
+                <li><Link to="#">Brewery.title</Link></li>
+                <li className="selected">
                   <div className="d-flex mt-1">
-                    <h6 className="mb-1">Beers</h6>
-                    <Badge color="secondary" size="sm" to="AddBeer">＋</Badge>
+                    <Link to="#">Brewery.title</Link>
+                    <Badge color="secondary dh-add" size="sm" to="AddBeer">＋</Badge>
                   </div>
-                  <li>Beer.name</li>
-                  <li className="selected">Beer.name</li>
-                  <li>Beer.name</li>
+                </li>
+                <ul className="dh-admin-beers">
+                  <li><Link to="#">Beer.name</Link></li>
+                  <li className="selected"><Link to="#">Beer.name</Link></li>
+                  <li><Link to="#">Beer.name</Link></li>
                 </ul>
-                <li>Brewery.title</li>
+                <li><Link to="#">Brewery.title</Link></li>
 
               </ul>
 
