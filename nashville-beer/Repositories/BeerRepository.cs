@@ -50,7 +50,7 @@ namespace nashvilleBeer.Repositories
                 conn.Open();
                 using (var cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = @"SELECT br.id, br.BreweryId, br.Name, br.Type, br.Abv, br.Ibu, br.ImageUrl
+                    cmd.CommandText = @"SELECT br.id, br.BreweryId, br.[Name] AS beerName, br.Type, br.Abv, br.Ibu, br.ImageUrl
                                         FROM Beer br 
                                         LEFT JOIN Brewery b ON br.BreweryId = b.Id
                                         WHERE b.Id = @id";
@@ -65,8 +65,8 @@ namespace nashvilleBeer.Repositories
                     {
                         beers.Add(new Beer()
                         {
-                            Id = reader.GetInt32(reader.GetOrdinal("Id")),
-                            Name = reader.GetString(reader.GetOrdinal("Name")),
+                            Id = reader.GetInt32(reader.GetOrdinal("id")),
+                            Name = reader.GetString(reader.GetOrdinal("beerName")),
                             Type = reader.GetString(reader.GetOrdinal("Type")),
                             Abv = reader.GetDecimal(reader.GetOrdinal("Abv")),
                             Ibu = reader.GetInt32(reader.GetOrdinal("Ibu")),

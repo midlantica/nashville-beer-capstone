@@ -27,5 +27,7 @@ namespace nashvilleBeer.Models
 
         public string Established { get; set; }
 
+        public List<Beer> Beers { get; set; }
+
     }
 }

@@ -18,7 +18,7 @@ export default function Header() {
         <NavbarBrand tag={RRNavLink} to="/">🍺 Nashville Breweries</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav navbar w100 className="w100" style={{lineHeight: "1", height: "2.8rem"}}>
+          <Nav navbar className="w100" style={{lineHeight: "1", height: "2.8rem"}}>
             {isLoggedIn &&
               <>
                 <NavItem className="mx-auto">
@@ -38,7 +38,7 @@ export default function Header() {
                 </NavItem>
 
                 <NavItem className="navbar-right">
-                  <NavLink tag={RRNavLink} to="/admin/:id">&#9881;</NavLink>
+                <NavLink tag={RRNavLink} to={`/admin/`}>&#9881;</NavLink>
                 </NavItem>
 
                 <NavItem className="navbar-right">

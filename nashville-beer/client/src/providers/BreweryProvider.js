@@ -63,12 +63,7 @@ export const BreweryProvider = (props) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(brewery)
-      }).then(resp => {
-        if (resp.ok) {
-          return resp.json();
-        }
-        throw new Error("Unauthorized");
-      }))
+    }))
   };
 
   const updateBrewery = (id, brewery) => {

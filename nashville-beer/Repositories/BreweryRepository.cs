@@ -20,23 +20,50 @@ namespace nashvilleBeer.Repositories
                 conn.Open();
                 using (var cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = @"SELECT Id, Title, Address, Website, ImageUrl, Established 
-                                        FROM Brewery";
+                    cmd.CommandText = @"SELECT bry.Id AS brewzId, bry.Title, bry.Address, bry.Website, bry.ImageUrl, bry.Established, 
+                                        br.id AS beerId, br.BreweryId, br.[Name], br.Type, br.Abv, br.Ibu, br.ImageUrl
+                                        FROM Brewery bry
+                                        LEFT JOIN Beer br ON br.BreweryId = bry.Id;";
 
                     var reader = cmd.ExecuteReader();
 
                     var breweries = new List<Brewery>();
                     while (reader.Read())
                     {
-                        breweries.Add(new Brewery()
+
+                        var brewzId = DbUtils.GetInt(reader, "brewzId");
+
+                        var existingBrewery = breweries.FirstOrDefault(p => p.Id == brewzId);
+                        if (existingBrewery == null)
                         {
-                            Id = reader.GetInt32(reader.GetOrdinal("Id")),
+                            existingBrewery = new Brewery()
+                        {
+                            Id = brewzId,
                             Title = reader.GetString(reader.GetOrdinal("Title")),
                             Address = reader.GetString(reader.GetOrdinal("Address")),
                             Website = reader.GetString(reader.GetOrdinal("Website")),
                             ImageUrl = reader.GetString(reader.GetOrdinal("ImageUrl")),
                             Established = reader.GetString(reader.GetOrdinal("Established")),
-                        });
+                            Beers = new List<Beer>() 
+                        };
+
+                            breweries.Add(existingBrewery);
+                        
+                        }
+
+                        if (DbUtils.IsNotDbNull(reader, "BeerId"))
+                        {
+                            existingBrewery.Beers.Add(new Beer()
+                            {
+                                Id = DbUtils.GetInt(reader, "BeerId"),
+                                Name = DbUtils.GetString(reader, "Name"),
+                                Type = DbUtils.GetString(reader, "Type"),
+                                Abv = DbUtils.GetNullableDec(reader, "Abv"),
+                                Ibu = DbUtils.GetInt(reader, "Ibu"),
+                                ImageUrl = DbUtils.GetString(reader, "ImageUrl"),
+                                BreweryId = DbUtils.GetInt(reader, "BreweryId")
+                            });
+                        }
                     }
 
                     reader.Close();
@@ -108,14 +135,18 @@ namespace nashvilleBeer.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        INSERT INTO Brewery (Title)
-                        OUTPUT INSERTED.ID
-                        VALUES ( @title )";
+                    INSERT INTO Brewery (Title, Address, Website, ImageUrl, Established) 
+                    OUTPUT INSERTED.ID
+                    VALUES ( @title, @address, @website, @imageurl, @established );";
 
                     cmd.Parameters.AddWithValue("@title", brewery.Title);
+                    cmd.Parameters.AddWithValue("@address", brewery.Address);
+                    cmd.Parameters.AddWithValue("@website", brewery.Website);
+                    cmd.Parameters.AddWithValue("@imageurl", brewery.ImageUrl);
+                    cmd.Parameters.AddWithValue("@established", brewery.Established);
 
                     int id = (int)cmd.ExecuteScalar();
-                    brewery.Id = id;
+                    //brewery.Id = id;
                 }
             }
         }
@@ -128,12 +159,16 @@ namespace nashvilleBeer.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        UPDATE Brewery
-                        SET 
-                            [Name] = @name 
-                            WHERE Id = @id";
+                     INSERT INTO Brewery (Title, Address, Website, ImageUrl, Established) 
+                     OUTPUT INSERTED.ID
+                     VALUES ( @title, @address, @website, @imageurl, @established );
+                    ";
 
-                    cmd.Parameters.AddWithValue("@name", brewery.Title);
+                    cmd.Parameters.AddWithValue("@title", brewery.Title);
+                    cmd.Parameters.AddWithValue("@address", brewery.Address);
+                    cmd.Parameters.AddWithValue("@website", brewery.Website);
+                    cmd.Parameters.AddWithValue("@imageurl", brewery.ImageUrl);
+                    cmd.Parameters.AddWithValue("@established", brewery.Established);
                     cmd.Parameters.AddWithValue("@id", brewery.Id);
 
                     cmd.ExecuteNonQuery();

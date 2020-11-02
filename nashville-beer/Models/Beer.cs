@@ -17,7 +17,7 @@ namespace nashvilleBeer.Models
         [Required]
         public string Type { get; set; }
                 
-        public decimal Abv { get; set; }
+        public decimal? Abv { get; set; }
 
         public int Ibu { get; set; }
 

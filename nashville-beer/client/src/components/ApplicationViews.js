@@ -19,7 +19,7 @@ export default function ApplicationViews() {
           {isLoggedIn ? <BreweryList /> : <Redirect to="/login" />}
         </Route>
 
-        <Route path="/admin/:id" exact>
+        <Route path="/admin/" exact>
           {isLoggedIn ? <Admin /> : <Redirect to="/login" />}
         </Route>
 

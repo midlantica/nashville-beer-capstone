@@ -10,6 +10,13 @@ export default function Beers({ beer }) {
   const defaultImage = 'placeholder.png';
   const history = useHistory();
 
+  //console.log("beer" + beer)
+  //console.log("beer" + beer.name)
+
+  if (!beer) {
+    return null;
+    console.log("nullage")
+  }
 
   if (sessionUser.userTypeId === 1) {
     return (
