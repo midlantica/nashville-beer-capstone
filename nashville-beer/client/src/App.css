@@ -228,11 +228,12 @@ ul.dh-admin-breweries li {
 
 ul.dh-admin-breweries li a {
   color: var(--gray700);
+  text-decoration: none;
 }
 
 ul.dh-admin-breweries li a:hover {
   color: var(--black800);
-  text-decoration: underline;
+  text-decoration: none;
   /* font-weight: 600; */
 }
 

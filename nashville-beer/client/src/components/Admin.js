@@ -55,7 +55,7 @@ export default function Admin() {
                 <h6 className="my-2">Breweries</h6>
 
                 <ul className="dh-admin-breweries">
-                  <li className="dh-add"><Link to="AddBrewery">Add Brewery</Link></li>
+                  <li className="dh-add"><Link to="./">Add Brewery</Link></li>
                   {breweries.map((i) =>
                     <>
                         <li key={i.id}>{i.title}
@@ -63,7 +63,9 @@ export default function Admin() {
                             <details>
                               <summary>Beers</summary>
                               {i.beers.map(beer =>
-                                <li key={beer.id}><Link to={beer.id}>{beer.name}</Link></li>
+                                <Link key={beer.id} to={beer.id}>
+                                  <li>{beer.name}</li>
+                                </Link>
                               )}
                               <li className="dh-add"><Link to="AddBeer">Add Beer</Link></li>
                             </details>
