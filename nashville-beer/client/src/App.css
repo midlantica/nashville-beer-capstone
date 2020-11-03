@@ -2,7 +2,8 @@
 :root {
   --dh-card-back: white;
   --brand: #17a2b8;
-  --border: hsla(0, 0%, 50%, 0.5)
+  --border: hsla(0, 0%, 50%, 0.5);
+  --highlight: hsla(60, 100%, 50%, 0.5);
 }
 
 body {
@@ -232,28 +233,28 @@ ul.dh-admin-breweries li.dh-add {
   font-size: .875rem;
   line-height: 1.5;
   border-radius: .2rem;
-  background-color: #838e97;
+  background: hsl(188deg 78% 41% / 80%);
   border: none;
   width: 100%;
   display: block;
   color: white;
+  margin-top: .25rem;
 }
 
 ul.dh-admin-breweries li.dh-add:hover {
-  background: hsla(0, 0%, 85%, 0.85);
   padding: .25rem .5rem;
   font-size: .875rem;
   line-height: 1.5;
   border-radius: .2rem;
   color: #fff;
-  background: #52595f;
+  background: hsl(188deg 78% 41% / 100%);
   width: 100%;
   display: block;
 }
 
 ul.dh-admin-breweries li.dh-add a {
   color: white;
-  margin-left: 1.9rem;
+  margin-left: 1.5rem;
 }
 
 ul.dh-admin-breweries li.dh-add a:hover {
@@ -282,17 +283,18 @@ ul.dh-admin-breweries li.dh-add:before {
   content: "+";
   position: absolute;
   font-style: normal;
-  left: .5rem;
   font-size: 1.6rem;
   line-height: 0.9;
-  top: 0;
+  top: 1px;
+  left: 4px;
 }
 
 ul.dh-admin-breweries li.selected, ul.dh-admin-breweries li.selected a {
   color: var(--black800);
   font-weight: 600;
-  font-style: italic;
+  /* font-style: italic; */
   text-decoration: none;
+  background: var(--highlight)
 }
 
 ul.dh-admin-beers {
@@ -301,7 +303,7 @@ ul.dh-admin-beers {
   margin-left: -1.5rem;
   padding-left: 0em;
   text-indent: 0em;
-  margin-bottom: .5rem;
+  margin-bottom: .25rem;
 }
 
 ul.dh-admin-beers li {
@@ -337,7 +339,7 @@ ul.dh-admin-beers li:before {
   content: "🍺";
   position: absolute;
   font-style: normal;
-  left: 0.5rem;
+  left: 0.75rem;
 }
 
 ul.dh-admin-beers li.dh-add:before {

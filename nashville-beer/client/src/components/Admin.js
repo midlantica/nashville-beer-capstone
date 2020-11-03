@@ -30,12 +30,6 @@ export default function Admin() {
     setBrewery(stateToChange);
   };
 
-  // const deleteThisBrewery = (id) => {
-  //   //e.preventDefault();
-  //   console.log("breweryToDeleteWahhhhhhhhh")
-  //   history.push('/admin'))
-  // }
-
   const makeNewBrewery = () => {
     addBrewery(brewery)
       console.log("Brewery", brewery)
@@ -147,7 +141,6 @@ export default function Admin() {
                 </FormGroup>
 
                 <div className="d-flex">
-                  <Button color="danger mr-auto" size="sm">Delete</Button>
                   <Button color="secondary" size="sm">Cancel</Button>
                   <Button color="primary ml-3" size="sm" onClick={makeNewBrewery}>Add New Brewery</Button>
                 </div>

@@ -79,30 +79,31 @@ namespace nashvilleBeer.Repositories
                 conn.Open();
                 using (var cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = @"
-                    SELECT Id, [Title]
-                    FROM Brewery
-                    WHERE Id = @id";
+                    cmd.CommandText = @"SELECT Id, Title, Address, Website, ImageUrl, Established
+                                        FROM Brewery
+                                        WHERE Id = @id;";
 
                     cmd.Parameters.AddWithValue("@id", id);
-
                     var reader = cmd.ExecuteReader();
-
+                    
+                    Brewery brewery = null;
+                    
                     if (reader.Read())
                     {
-                        Brewery brewery = new Brewery()
+                        brewery = new Brewery()
                         {
                             Id = reader.GetInt32(reader.GetOrdinal("Id")),
-                            Title = reader.GetString(reader.GetOrdinal("Title"))
+                            Title = reader.GetString(reader.GetOrdinal("Title")),
+                            Address = reader.GetString(reader.GetOrdinal("Address")),
+                            Website = reader.GetString(reader.GetOrdinal("Website")),
+                            ImageUrl = reader.GetString(reader.GetOrdinal("ImageUrl")),
+                            Established = reader.GetString(reader.GetOrdinal("Established"))
                         };
-
-
-                        reader.Close();
-                        return brewery;
                     }
 
                     reader.Close();
-                    return null;
+
+                    return brewery;
                 }
             }
         }

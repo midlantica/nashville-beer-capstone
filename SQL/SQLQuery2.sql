@@ -1,4 +1,17 @@
-﻿SELECT bry.Id, bry.Title, bry.Address, bry.Website, bry.ImageUrl, bry.Established, 
+﻿SELECT Id, Title, Address, Website, ImageUrl, Established
+FROM Brewery
+WHERE Id = 1;
+
+
+
+SELECT bry.Id AS brewzId, bry.Title, bry.Address, bry.Website, bry.ImageUrl, bry.Established
+FROM Brewery bry;
+
+
+
+
+
+SELECT bry.Id, bry.Title, bry.Address, bry.Website, bry.ImageUrl, bry.Established, 
 br.id, br.BreweryId, br.[Name], br.Type, br.Abv, br.Ibu, br.ImageUrl
 FROM Brewery bry
 LEFT JOIN Beer br ON br.BreweryId = bry.Id;
