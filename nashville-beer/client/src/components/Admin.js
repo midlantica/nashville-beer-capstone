@@ -22,11 +22,21 @@ export default function Admin() {
   const { addBrewery } = useContext(BreweryContext);
   const history = useHistory();
 
-  const handleFieldChange = evt => {
+  const [breweryToDelete, setBreweryToDelete] = useState({})
+
+  const handleFieldChange = (evt) => {
     const stateToChange = brewery;
     stateToChange[evt.target.id] = evt.target.value;
     setBrewery(stateToChange);
   };
+
+  const deleteBrewery = (e) => {
+    e.preventDefault();
+    console.log("breweryToDeleteWahhhhhhhhh", breweryToDelete, id)
+    deleteBrewery(breweryToDelete.id)
+      .then(() => history.push('/admin'))
+  }
+
 
   const makeNewBrewery = () => {
     addBrewery(brewery)
@@ -40,6 +50,10 @@ export default function Admin() {
     getAllBeersFromBrewery()
     getAllBreweries()
   }, [])
+
+  useEffect(() => {
+    setBreweryToDelete(brewery)
+  }, [brewery])
 
   return (
     <>
@@ -58,19 +72,25 @@ export default function Admin() {
                   <li className="dh-add"><Link to="./">Add Brewery</Link></li>
                   {breweries.map((i) =>
                     <>
-                        <li key={i.id}>{i.title}
-                          <ul className="dh-admin-beers">
-                            <details>
-                              <summary>Beers</summary>
+
+                        <li key={i.id}>
+                          <details>
+                            <summary>{i.title}
+                                <button id={brewery.id}
+                                        className="dh-btn-delete"
+                                        onClick={(e) => this.deleteBrewery(e)}>-
+                                </button>
+                            </summary>
+                            <ul className="dh-admin-beers">
                               {i.beers.map(beer =>
                                 <Link key={beer.id} to={beer.id}>
                                   <li>{beer.name}</li>
                                 </Link>
                               )}
                               <li className="dh-add"><Link to="AddBeer">Add Beer</Link></li>
-                            </details>
-                          </ul>
-                        </li>
+                            </ul>
+                        </details>
+                      </li>
                     </>
                   )}
                 </ul>

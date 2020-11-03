@@ -67,7 +67,7 @@ code {
 .dh-form-grid {
   display: grid;
   grid-gap: 2em;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: minmax(300px, 1fr) 3fr;
 }
 
 .dh-card-wrap {
@@ -226,6 +226,40 @@ ul.dh-admin-breweries li {
   border: 1px solid var(--border);
 }
 
+ul.dh-admin-breweries li.dh-add {
+  background: hsla(0, 0%, 85%, 0.85);
+  padding: .25rem .5rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  border-radius: .2rem;
+  background-color: #838e97;
+  border: none;
+  width: 100%;
+  display: block;
+  color: white;
+}
+
+ul.dh-admin-breweries li.dh-add:hover {
+  background: hsla(0, 0%, 85%, 0.85);
+  padding: .25rem .5rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  border-radius: .2rem;
+  color: #fff;
+  background: #52595f;
+  width: 100%;
+  display: block;
+}
+
+ul.dh-admin-breweries li.dh-add a {
+  color: white;
+  margin-left: 1.9rem;
+}
+
+ul.dh-admin-breweries li.dh-add a:hover {
+  /* background: #52595f; */
+}
+
 ul.dh-admin-breweries li a {
   color: var(--gray700);
   text-decoration: none;
@@ -271,7 +305,7 @@ ul.dh-admin-beers li {
   text-indent: -.5em;
   padding-left: 2.5em;
   font-size: .85rem;
-  line-height: 1.25;
+  line-height: 1.5;
   cursor: pointer;
   /* border-radius: .15rem; */
   /* border: 1px solid var(--border); */
@@ -300,7 +334,7 @@ ul.dh-admin-beers li:before {
   content: "🍺";
   position: absolute;
   font-style: normal;
-  left: 1rem;
+  left: 0.5rem;
 }
 
 ul.dh-admin-beers li.dh-add:before {
@@ -334,7 +368,7 @@ details[open] {
 }
 
 summary {
-  padding: .0rem 0.25rem;
+  padding: .0rem 0rem;
   font-size: .9rem;
 }
 
@@ -363,4 +397,19 @@ summary a {
 summary a:hover {
   /* text-decoration: underline; */
   background: hsla(60, 100%, 50%, 0.5);
+}
+
+.dh-btn-delete {
+  background: hsla(0, 0%, 48%, 0.75);
+  border-radius: 2rem;
+  font-size: 1.5rem;
+  line-height: 0.6;
+  float: right;
+  border: none;
+  padding: 0.2rem .5rem 0.65rem;
+  color: white;
+}
+
+.dh-btn-delete:hover {
+  background: hsla(0, 0%, 48%, 1);
 }
