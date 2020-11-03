@@ -279,10 +279,13 @@ ul.dh-admin-breweries li:before {
 }
 
 ul.dh-admin-breweries li.dh-add:before {
-  content: "➕";
+  content: "+";
   position: absolute;
   font-style: normal;
   left: .5rem;
+  font-size: 1.6rem;
+  line-height: 0.9;
+  top: 0;
 }
 
 ul.dh-admin-breweries li.selected, ul.dh-admin-breweries li.selected a {
@@ -338,10 +341,13 @@ ul.dh-admin-beers li:before {
 }
 
 ul.dh-admin-beers li.dh-add:before {
-  content: "➕";
-  position: absolute;
+  content: "+";
+  position: relative;
   font-style: normal;
-  left: 1rem;
+  left: 0.5rem;
+  font-size: 1.6rem;
+  line-height: 0;
+  top: 0px;
 }
 
 ul.dh-admin-beers li.selected, ul.dh-admin-beers li.selected a {

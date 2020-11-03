@@ -19,7 +19,7 @@ export default function Admin() {
   const [userTypeId, setUserTypeId] = useState()
 
   const [brewery, setBrewery] = useState({ name: "", beers:[] })
-  const { addBrewery } = useContext(BreweryContext);
+  const { addBrewery, deleteThisBrewery } = useContext(BreweryContext);
   const history = useHistory();
 
   const [breweryToDelete, setBreweryToDelete] = useState({})
@@ -30,13 +30,11 @@ export default function Admin() {
     setBrewery(stateToChange);
   };
 
-  const deleteBrewery = (e) => {
-    e.preventDefault();
-    console.log("breweryToDeleteWahhhhhhhhh", breweryToDelete, id)
-    deleteBrewery(breweryToDelete.id)
-      .then(() => history.push('/admin'))
-  }
-
+  // const deleteThisBrewery = (id) => {
+  //   //e.preventDefault();
+  //   console.log("breweryToDeleteWahhhhhhhhh")
+  //   history.push('/admin'))
+  // }
 
   const makeNewBrewery = () => {
     addBrewery(brewery)
@@ -46,14 +44,17 @@ export default function Admin() {
 
   useEffect(() => {
     setUserTypeId(sessionUser.userTypeId)
-    getBreweryById(id)
-    getAllBeersFromBrewery()
     getAllBreweries()
   }, [])
 
   useEffect(() => {
     setBreweryToDelete(brewery)
   }, [brewery])
+
+  if (!brewery) {
+    console.log("it's happenning...")
+    return null
+  }
 
   return (
     <>
@@ -69,29 +70,27 @@ export default function Admin() {
                 <h6 className="my-2">Breweries</h6>
 
                 <ul className="dh-admin-breweries">
-                  <li className="dh-add"><Link to="./">Add Brewery</Link></li>
-                  {breweries.map((i) =>
-                    <>
-
-                        <li key={i.id}>
-                          <details>
-                            <summary>{i.title}
-                                <button id={brewery.id}
-                                        className="dh-btn-delete"
-                                        onClick={(e) => this.deleteBrewery(e)}>-
-                                </button>
-                            </summary>
-                            <ul className="dh-admin-beers">
-                              {i.beers.map(beer =>
-                                <Link key={beer.id} to={beer.id}>
-                                  <li>{beer.name}</li>
-                                </Link>
-                              )}
+                  <li className="dh-add">
+                    <Link to="./">Add Brewery</Link></li>
+                    {breweries.map((i) =>
+                    <li key={i.id}>
+                      <details>
+                        <summary>{i.title}
+                          <button id={i.id}
+                                  className="dh-btn-delete"
+                                  onClick={() => deleteThisBrewery(i.id)}>-
+                          </button>
+                        </summary>
+                        <ul className="dh-admin-beers">
+                          {i.beers.map(beer =>
+                            <Link key={beer.id} to={beer.id}>
+                              <li>{beer.name}</li>
+                            </Link>
+                          )}
                               <li className="dh-add"><Link to="AddBeer">Add Beer</Link></li>
-                            </ul>
-                        </details>
-                      </li>
-                    </>
+                        </ul>
+                      </details>
+                    </li>
                   )}
                 </ul>
 
@@ -150,7 +149,7 @@ export default function Admin() {
                 <div className="d-flex">
                   <Button color="danger mr-auto" size="sm">Delete</Button>
                   <Button color="secondary" size="sm">Cancel</Button>
-                  <Button color="primary ml-2" size="sm" onClick={makeNewBrewery}>Submit Brewery</Button>
+                  <Button color="primary ml-3" size="sm" onClick={makeNewBrewery}>Add New Brewery</Button>
                 </div>
               </Form>
             </div>

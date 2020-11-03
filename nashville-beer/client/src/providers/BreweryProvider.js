@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { UserProfileContext } from "./UserProfileProvider";
-
+import { useHistory } from "react-router-dom";
 export const BreweryContext = React.createContext();
 
 export const BreweryProvider = (props) => {
@@ -9,6 +9,7 @@ export const BreweryProvider = (props) => {
 
   const [breweries, setBreweries] = useState([]);
   const [brewery, setBrewery] = useState({});
+  const history = useHistory();
 
   const getAllBreweries = () => {
     getToken().then((token) =>
@@ -63,7 +64,7 @@ export const BreweryProvider = (props) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(brewery)
-    }))
+    }).then(getAllBreweries()))
   };
 
   const updateBrewery = (id, brewery) => {
@@ -75,23 +76,23 @@ export const BreweryProvider = (props) => {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(brewery)
-      }))
+      }).then(getAllBreweries())
+      )
   };
 
-  const deleteBrewery = (id) =>
+  const deleteThisBrewery = (id) =>
     getToken().then((token) =>
-      fetch(`/api/brewery/delete/${id}`, {
+      fetch(`/api/brewery/${id}`, {
         method: "DELETE",
         headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json"
-        },
-
-      }))
+          Authorization: `Bearer ${token}`
+        }
+      }).then(getAllBreweries())
+      )
 
   return (
     <BreweryContext.Provider value={{
-      brewery, breweries, getAllBreweries, getAllBreweryBeers, getBreweryById, addBrewery, updateBrewery, deleteBrewery, setBrewery, getAllBreweriesByUser
+      brewery, breweries, getAllBreweries, getAllBreweryBeers, getBreweryById, addBrewery, updateBrewery, deleteThisBrewery, setBrewery, getAllBreweriesByUser
     }}>
       {props.children}
     </BreweryContext.Provider>

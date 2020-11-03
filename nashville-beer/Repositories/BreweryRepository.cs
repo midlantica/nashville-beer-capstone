@@ -107,23 +107,27 @@ namespace nashvilleBeer.Repositories
             }
         }
 
-        public void DeleteBrewery(int id)
+        public void DeleteBrewery(int breweryId)
         {
             using (var conn = Connection)
             {
                 conn.Open();
                 using (var cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = @"
-                        UPDATE Brewery
-                        SET IsDeleted = @isDeleted
-                        WHERE Id = @id
-                    ";
-                    cmd.Parameters.AddWithValue("@isDeleted", 1);
-                    cmd.Parameters.AddWithValue("@id", id);
-
+                    cmd.CommandText = @"DELETE FROM Beer 
+                                        WHERE BreweryId = @breweryId";
+                    cmd.Parameters.AddWithValue("@breweryId", breweryId);
                     cmd.ExecuteNonQuery();
                 }
+
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"DELETE FROM Brewery 
+                                        WHERE Id = @id";
+                    cmd.Parameters.AddWithValue("@id", breweryId);
+                    cmd.ExecuteNonQuery();
+                }
+
             }
         }
 
