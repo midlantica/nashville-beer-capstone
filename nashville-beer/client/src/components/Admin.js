@@ -69,11 +69,13 @@ export default function Admin() {
                   {breweries.map((i) =>
                   <li key={i.id}>
                     <details>
-                      <summary>{i.title}
+                        <summary><Link key={i.id} to={`${i.id}`}>{i.title}</Link>
+
                         <button id={i.id}
                                 className="dh-btn-delete"
                                 onClick={() => deleteThisBrewery(i.id)}>-
                         </button>
+
                       </summary>
                       <ul className="dh-admin-beers">
                         {i.beers.map(beer =>
@@ -92,7 +94,26 @@ export default function Admin() {
 
             {/* CONTENT FORM */}
             <div className="content">
-              <FormEditBrewery/>
+
+              return (
+
+                if(brewery) {
+                  <FormEditBrewery />
+                }
+
+                {/* else if (y == true) {
+                  <FormCreateBrewery />
+                }
+                */}
+
+                else {
+                  <div>
+                    <h1>Please select a Brewery of Beer</h1>
+                  </div>
+                }
+              )
+
+
             </div>
         </div>
       </section>
