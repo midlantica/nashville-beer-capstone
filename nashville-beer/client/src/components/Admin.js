@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Beers from "./Beers";
 import Brewery from "./Brewery";
 import FormEditBrewery from "./FormEditBrewery";
+import FormAddBrewery from "./FormAddBrewery";
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { NavLink as RRNavLink, Link, useParams, useHistory } from "react-router-dom";
 //import { UserProfileContext } from "../providers/UserProfileProvider";
@@ -63,7 +64,7 @@ export default function Admin() {
             <div className="sidebar">
               <div className="dh-brewAdminHead flexRow just-space-between my-2 pr-2">
                 <h5>Breweries</h5>
-                <div className="dh-add"><Link to="./">+</Link></div>
+                <div className="dh-add"><Link to="/admin/brewery/new">+</Link></div>
               </div>
 
               <ul className="dh-admin-breweries">
@@ -96,18 +97,16 @@ export default function Admin() {
             {/* CONTENT FORM */}
             <div className="content">
 
-
-
-                { brewery ?
-                  <FormEditBrewery />
-
+              { window.location.pathname === `/admin/brewery/new`?
+                <FormAddBrewery />
                 :
-
-                  <div>
-                    <h4>Please select a Brewery of Beer</h4>
-                  </div>
-
-                }
+                window.location.pathname === `/admin/brewery/${id}`?
+                <FormEditBrewery />
+                :
+                <div className="border panel panel-default d-flex align-items-center justify-content-center h-100">
+                  <h4>Please select a Brewery or Beer</h4>
+                </div>
+              }
 
             </div>
         </div>

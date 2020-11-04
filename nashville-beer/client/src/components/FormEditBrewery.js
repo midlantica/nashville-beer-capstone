@@ -19,19 +19,19 @@ export default function FormEditBrewery() {
 
   const [editedBrewery, setEditedBrewery] = useState({
     id: brewery.id,
-    title: "",
-    address: "",
-    website: "",
-    imageUrl: "",
-    established: ""
+    title: brewery.title,
+    address: brewery.address,
+    website: brewery.website,
+    imageUrl: brewery.imageUrl,
+    established: brewery.established
   })
   const history = useHistory();
 
   const [breweryToDelete, setBreweryToDelete] = useState({})
 
-  const handleFieldChange = (evt) => {
+  const handleFieldChange = (e) => {
     const stateToChange = editedBrewery;
-    stateToChange[evt.target.id] = evt.target.value;
+    stateToChange[e.target.id] = e.target.value;
     setEditedBrewery(stateToChange);
   };
 
@@ -39,7 +39,8 @@ export default function FormEditBrewery() {
     e.preventDefault()
     const newId = parseInt(id)
     updateBrewery(newId, editedBrewery)
-      history.push(`/admin/`);
+    // history.push(`/admin/brewery/${id}`)
+    document.getElementById('breweryForm').reset()
   };
 
   useEffect(() => {
@@ -57,7 +58,9 @@ export default function FormEditBrewery() {
   }, [brewery])
 
   if (!brewery) {
-    return null
+    return (
+      <><h5>Please select a Brewery or Beer</h5></>
+    )
   }
 
   return (
@@ -67,7 +70,7 @@ export default function FormEditBrewery() {
       <section>
         <div className="content">
           <h4>Brewery</h4>
-          <Form style={{ maxWidth: "600px", minWidth: "300px"}}>
+          <Form id="breweryForm" style={{ maxWidth: "600px", minWidth: "300px"}}>
 
             <FormGroup>
               <Input

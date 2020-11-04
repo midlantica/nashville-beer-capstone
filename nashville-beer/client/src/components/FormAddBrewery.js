@@ -32,8 +32,8 @@ export default function FormAddBrewery() {
 
   const makeNewBrewery = () => {
     addBrewery(brewery)
-      console.log("Brewery", brewery)
-        history.push("/admin");
+    //console.log("Brewery", brewery)
+    .then(history.push("/admin"));
   };
 
   useEffect(() => {
