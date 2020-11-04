@@ -266,11 +266,16 @@ ul.dh-admin-breweries {
 
 ul.dh-admin-breweries li {
   text-indent: 0em;
-  padding: 0.25rem .25rem .25rem 2.25rem;
+  padding: 0.25rem .25rem .35rem 2.25rem;
   font-size: .85rem;
   line-height: 2;
   cursor: pointer;
   border-radius: .15rem;
+  border: 1px solid var(--border);
+  /* background: hsl(0deg 0% 96% / 60%); */
+}
+
+ul.dh-admin-breweries li summary:open {
   border: 1px solid var(--border);
   background: hsl(0deg 0% 96% / 60%);
 }
@@ -323,6 +328,7 @@ details .dh-add-beer {
   display: inline;
   color: white;
   margin-top: .25rem;
+  margin-bottom: .25rem;
   position: relative;
   margin-left: -1.5rem;
 }
@@ -361,10 +367,19 @@ ul.dh-admin-breweries li a {
   text-decoration: none;
 }
 
+ul.dh-admin-breweries li:hover {
+  /* color: var(--black700); */
+  /* text-decoration: none; */
+  /* font-weight: bold; */
+  background: hsl(188deg 100% 96% / 60%);
+  ;
+}
+
 ul.dh-admin-breweries li a:hover {
   color: var(--black700);
   text-decoration: none;
-  /* font-weight: 600; */
+  /* font-weight: bold; */
+  /* background: hsla(50deg 100% 50% / 50%); */
 }
 
 ul.dh-admin-breweries li:before {
@@ -456,7 +471,7 @@ details:focus {
 }
 
 details[open] {
-  padding: .0rem 0rem 0 0rem;
+  padding: .0rem 0rem 0.25rem 0rem;
   /* border: 1px solid var(--border); */
 }
 
@@ -489,7 +504,7 @@ summary a {
 
 summary a:hover {
   /* text-decoration: underline; */
-  background: hsla(60, 100%, 50%, 0.5);
+  /* background: hsla(60, 100%, 50%, 0.5); */
 }
 
 .dh-btn-delete {

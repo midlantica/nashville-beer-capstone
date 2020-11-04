@@ -164,9 +164,13 @@ namespace nashvilleBeer.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                     INSERT INTO Brewery (Title, Address, Website, ImageUrl, Established) 
-                     OUTPUT INSERTED.ID
-                     VALUES ( @title, @address, @website, @imageurl, @established );
+                     UPDATE Brewery SET 
+                                    Title=@title, 
+                                    Address=@address, 
+                                    Website=@website, 
+                                    ImageUrl=@imageurl, 
+                                    Established=@established 
+                                    WHERE Id = @id
                     ";
 
                     cmd.Parameters.AddWithValue("@title", brewery.Title);

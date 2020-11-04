@@ -49,7 +49,7 @@ namespace nashvilleBeer.Controllers
             return CreatedAtAction("Get", new { id = brewery.Id }, brewery);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("edit/{id}")]
         public IActionResult Put(int id, Brewery brewery)
         {
             if (id != brewery.Id)

@@ -40,7 +40,8 @@ export default function Admin() {
   useEffect(() => {
     setUserTypeId(sessionUser.userTypeId)
     getAllBreweries()
-  }, [])
+    getBreweryById(id)
+  }, [id])
 
   useEffect(() => {
     setBreweryToDelete(brewery)
@@ -69,7 +70,7 @@ export default function Admin() {
                   {breweries.map((i) =>
                   <li key={i.id}>
                     <details>
-                        <summary><Link key={i.id} to={`${i.id}`}>{i.title}</Link>
+                        <summary><Link key={i.id} to={`/admin/brewery/${i.id}`}>{i.title}</Link>
 
                         <button id={i.id}
                                 className="dh-btn-delete"
@@ -95,24 +96,18 @@ export default function Admin() {
             {/* CONTENT FORM */}
             <div className="content">
 
-              return (
 
-                if(brewery) {
+
+                { brewery ?
                   <FormEditBrewery />
-                }
 
-                {/* else if (y == true) {
-                  <FormCreateBrewery />
-                }
-                */}
+                :
 
-                else {
                   <div>
-                    <h1>Please select a Brewery of Beer</h1>
+                    <h4>Please select a Brewery of Beer</h4>
                   </div>
-                }
-              )
 
+                }
 
             </div>
         </div>

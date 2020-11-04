@@ -12,36 +12,48 @@ export default function FormEditBrewery() {
   //const { isLoggedIn, logout } = useContext(UserProfileContext);
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-  const { getAllBreweries, getBreweryById, breweries } = useContext(BreweryContext)
+  const { updateBrewery, brewery, getAllBreweries, getBreweryById, breweries } = useContext(BreweryContext)
   const { getAllBeersFromBrewery, beers } = useContext(BeerContext)
   const sessionUser = JSON.parse(sessionStorage.getItem("userProfile"))
   const [userTypeId, setUserTypeId] = useState()
 
-  const [brewery, setBrewery] = useState({ name: "", beers:[] })
-  const { addBrewery, deleteThisBrewery } = useContext(BreweryContext);
+  const [editedBrewery, setEditedBrewery] = useState({
+    id: brewery.id,
+    title: "",
+    address: "",
+    website: "",
+    imageUrl: "",
+    established: ""
+  })
   const history = useHistory();
 
   const [breweryToDelete, setBreweryToDelete] = useState({})
 
   const handleFieldChange = (evt) => {
-    const stateToChange = brewery;
+    const stateToChange = editedBrewery;
     stateToChange[evt.target.id] = evt.target.value;
-    setBrewery(stateToChange);
+    setEditedBrewery(stateToChange);
   };
 
-  const makeNewBrewery = () => {
-    addBrewery(brewery)
-      console.log("Brewery", brewery)
-        history.push("/admin");
+  const editBrewery = (e) => {
+    e.preventDefault()
+    const newId = parseInt(id)
+    updateBrewery(newId, editedBrewery)
+      history.push(`/admin/`);
   };
 
   useEffect(() => {
     setUserTypeId(sessionUser.userTypeId)
     getAllBreweries()
-  }, [])
+    getBreweryById(id)
+  }, [id])
 
   useEffect(() => {
     setBreweryToDelete(brewery)
+  }, [brewery])
+
+  useEffect(() => {
+    setEditedBrewery(brewery)
   }, [brewery])
 
   if (!brewery) {
@@ -58,9 +70,18 @@ export default function FormEditBrewery() {
           <Form style={{ maxWidth: "600px", minWidth: "300px"}}>
 
             <FormGroup>
+              <Input
+                defaultValue={brewery.id}
+                name="id"
+                id="id"
+                type="hidden" />
+            </FormGroup>
+
+            <FormGroup>
               <Label for="title">Title</Label>
               <Input type="text"
                 onChange={handleFieldChange}
+                defaultValue={brewery.title}
                 name="title"
                 id="title"
                 placeholder="title" />
@@ -70,6 +91,7 @@ export default function FormEditBrewery() {
               <Label for="address">Address</Label>
               <Input type="address"
                 onChange={handleFieldChange}
+                defaultValue={brewery.address}
                 name="address"
                 id="address"
                 placeholder="address" />
@@ -79,6 +101,7 @@ export default function FormEditBrewery() {
               <Label for="website">Website</Label>
               <Input type="website"
                 onChange={handleFieldChange}
+                defaultValue={brewery.website}
                 name="website"
                 id="website"
                 placeholder="website" />
@@ -88,6 +111,7 @@ export default function FormEditBrewery() {
               <Label for="established">Established</Label>
               <Input type="established"
                 onChange={handleFieldChange}
+                defaultValue={brewery.established}
                 name="established"
                 id="established"
                 placeholder="established" />
@@ -97,6 +121,7 @@ export default function FormEditBrewery() {
               <Label for="imageUrl">Image Url</Label>
               <Input type="imageUrl"
                 onChange={handleFieldChange}
+                defaultValue={brewery.imageUrl}
                 name="imageUrl"
                 id="imageUrl"
                 placeholder="imageUrl" />
@@ -104,7 +129,7 @@ export default function FormEditBrewery() {
 
             <div className="d-flex">
               <Button color="secondary" size="sm">Cancel</Button>
-              <Button color="primary ml-3" size="sm" onClick={makeNewBrewery}>Add New Brewery</Button>
+              <Button color="primary ml-3" size="sm" onClick={editBrewery}>Edit Brewery</Button>
             </div>
           </Form>
 
