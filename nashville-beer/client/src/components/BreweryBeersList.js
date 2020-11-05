@@ -37,10 +37,13 @@ export default function BreweryBeersList() {
         <div>
 
           <section className="dh-grid_breweryBeers">
-            <div>
+            <div class="dh-relative">
+              <div className="dh-sticky">
+
               {(brewery !== undefined) &&
                 <Brewery key={brewery.id} brewery={brewery} />
               }
+              </div>
             </div>
 
             <div className="dh-grid_beers">
