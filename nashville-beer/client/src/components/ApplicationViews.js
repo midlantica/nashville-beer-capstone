@@ -6,6 +6,7 @@ import Login from "./Login";
 import Register from "./Register";
 import BreweryList from "./BreweryList";
 import BreweryBeersList from "./BreweryBeersList";
+import BeerAdd from "./BeerAdd";
 import Admin from "./Admin";
 
 export default function ApplicationViews() {
@@ -19,6 +20,14 @@ export default function ApplicationViews() {
           {isLoggedIn ? <BreweryList /> : <Redirect to="/login" />}
         </Route>
 
+        <Route path="/brewery/:id" exact>
+          {isLoggedIn ? <BreweryBeersList /> : <Redirect to="/login" />}
+        </Route>
+
+        <Route path="/admin/brewery/:id/addNew" exact>
+          {isLoggedIn ? <BeerAdd /> : <Redirect to="/login" />}
+        </Route>
+
         <Route path="/admin/" exact>
           {isLoggedIn ? <Admin /> : <Redirect to="/login" />}
         </Route>
@@ -29,10 +38,6 @@ export default function ApplicationViews() {
 
         <Route path="/admin/brewery/new" exact>
           {isLoggedIn ? <Admin /> : <Redirect to="/login" />}
-        </Route>
-
-        <Route path="/brewery/:id" exact>
-          {isLoggedIn ? <BreweryBeersList /> : <Redirect to="/login" />}
         </Route>
 
         <Route path="/login">

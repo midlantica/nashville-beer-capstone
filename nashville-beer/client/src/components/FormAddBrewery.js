@@ -18,7 +18,7 @@ export default function FormAddBrewery() {
   const sessionUser = JSON.parse(sessionStorage.getItem("userProfile"))
   const [userTypeId, setUserTypeId] = useState()
 
-  const [brewery, setBrewery] = useState({ name: "", beers:[] })
+  const [brewery, setBrewery] = useState({ })
   const { addBrewery, deleteThisBrewery } = useContext(BreweryContext);
   const history = useHistory();
 

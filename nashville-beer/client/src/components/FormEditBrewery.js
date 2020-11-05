@@ -30,7 +30,7 @@ export default function FormEditBrewery() {
   const [breweryToDelete, setBreweryToDelete] = useState({})
 
   const handleFieldChange = (e) => {
-    const stateToChange = editedBrewery;
+    const stateToChange = {...editedBrewery};
     stateToChange[e.target.id] = e.target.value;
     setEditedBrewery(stateToChange);
   };
@@ -39,7 +39,7 @@ export default function FormEditBrewery() {
     e.preventDefault()
     const newId = parseInt(id)
     updateBrewery(newId, editedBrewery)
-    // history.push(`/admin/brewery/${id}`)
+    //history.push(`/admin/brewery/${id}`)
     document.getElementById('breweryForm').reset()
   };
 
@@ -59,7 +59,7 @@ export default function FormEditBrewery() {
 
   if (!brewery) {
     return (
-      <><h5>Please select a Brewery or Beer</h5></>
+      <><h6>Please select a Brewery or Beer</h6></>
     )
   }
 
@@ -74,7 +74,7 @@ export default function FormEditBrewery() {
 
             <FormGroup>
               <Input
-                defaultValue={brewery.id}
+                value={editedBrewery.id}
                 name="id"
                 id="id"
                 type="hidden" />
@@ -84,7 +84,7 @@ export default function FormEditBrewery() {
               <Label for="title">Title</Label>
               <Input type="text"
                 onChange={handleFieldChange}
-                defaultValue={brewery.title}
+                value={editedBrewery.title}
                 name="title"
                 id="title"
                 placeholder="title" />
@@ -94,7 +94,7 @@ export default function FormEditBrewery() {
               <Label for="address">Address</Label>
               <Input type="address"
                 onChange={handleFieldChange}
-                defaultValue={brewery.address}
+                value={editedBrewery.address}
                 name="address"
                 id="address"
                 placeholder="address" />
@@ -104,7 +104,7 @@ export default function FormEditBrewery() {
               <Label for="website">Website</Label>
               <Input type="website"
                 onChange={handleFieldChange}
-                defaultValue={brewery.website}
+                value={editedBrewery.website}
                 name="website"
                 id="website"
                 placeholder="website" />
@@ -114,7 +114,7 @@ export default function FormEditBrewery() {
               <Label for="established">Established</Label>
               <Input type="established"
                 onChange={handleFieldChange}
-                defaultValue={brewery.established}
+                value={editedBrewery.established}
                 name="established"
                 id="established"
                 placeholder="established" />
@@ -124,7 +124,7 @@ export default function FormEditBrewery() {
               <Label for="imageUrl">Image Url</Label>
               <Input type="imageUrl"
                 onChange={handleFieldChange}
-                defaultValue={brewery.imageUrl}
+                value={editedBrewery.imageUrl}
                 name="imageUrl"
                 id="imageUrl"
                 placeholder="imageUrl" />

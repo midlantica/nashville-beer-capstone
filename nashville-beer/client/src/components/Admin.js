@@ -32,26 +32,26 @@ export default function Admin() {
     setBrewery(stateToChange);
   };
 
-  const makeNewBrewery = () => {
-    addBrewery(brewery)
-      console.log("Brewery", brewery)
-        history.push("/admin");
-  };
+  // const makeNewBrewery = () => {
+  //   addBrewery(brewery)
+  //     console.log("Brewery", brewery)
+  //       history.push("/admin");
+  // };
 
   useEffect(() => {
     setUserTypeId(sessionUser.userTypeId)
     getAllBreweries()
-    getBreweryById(id)
+    //getBreweryById(id)
   }, [id])
 
-  useEffect(() => {
-    setBreweryToDelete(brewery)
-  }, [brewery])
+  // useEffect(() => {
+  //   setBreweryToDelete(brewery)
+  // }, [brewery])
 
-  if (!brewery) {
-    console.log("it's happenning...")
-    return null
-  }
+  // if (!brewery) {
+  //   //console.log("it's happenning...")
+  //   return null
+  // }
 
   return (
     <>
@@ -86,7 +86,7 @@ export default function Admin() {
                           </Link>
                         )}
                       </ul>
-                      <div className="dh-add-beer"><Link to="AddBeer">Add New Beer</Link></div>
+                        <div className="dh-add-beer"><Link to={`/admin/brewery/${i.id}/addNew`}>Add New Beer</Link></div>
                     </details>
                   </li>
                 )}
@@ -94,10 +94,11 @@ export default function Admin() {
 
             </div>
 
-            {/* CONTENT FORM */}
+            {/* CONTENT PANEL */}
             <div className="content">
 
-              { window.location.pathname === `/admin/brewery/new`?
+              {
+                window.location.pathname === `/admin/brewery/new` ?
                 <FormAddBrewery />
                 :
                 window.location.pathname === `/admin/brewery/${id}`?

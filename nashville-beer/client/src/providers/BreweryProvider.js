@@ -64,7 +64,7 @@ export const BreweryProvider = (props) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(brewery)
-    }).then(getAllBreweries()))
+    }).then(getAllBreweries))
   };
 
   const updateBrewery = (id, brewery) => {
@@ -76,7 +76,7 @@ export const BreweryProvider = (props) => {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(brewery)
-      }).then(getAllBreweries())
+      }).then((getAllBreweries))
       )
   };
 
@@ -87,7 +87,7 @@ export const BreweryProvider = (props) => {
         headers: {
           Authorization: `Bearer ${token}`
         }
-      }).then(getAllBreweries())
+      }).then((getAllBreweries))
       )
 
   return (

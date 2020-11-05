@@ -145,11 +145,16 @@ namespace nashvilleBeer.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        INSERT INTO Beer (Name)
+                        INSERT INTO Beer([Name],BreweryId,[Type],Abv,Ibu,ImageUrl)
                         OUTPUT INSERTED.ID
-                        VALUES ( @name )";
+                        VALUES ( @name, @BreweryId, @Type, @Abv, @Ibu, @ImageUrl )";
 
                     cmd.Parameters.AddWithValue("@name", beer.Name);
+                    cmd.Parameters.AddWithValue("@BreweryId", beer.BreweryId);
+                    cmd.Parameters.AddWithValue("@Type", beer.Type);
+                    cmd.Parameters.AddWithValue("@Abv", beer.Abv);
+                    cmd.Parameters.AddWithValue("@Ibu", beer.Ibu);
+                    cmd.Parameters.AddWithValue("@ImageUrl", beer.ImageUrl);
 
                     int id = (int)cmd.ExecuteScalar();
                     beer.Id = id;
