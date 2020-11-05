@@ -521,3 +521,13 @@ summary a:hover {
 .dh-btn-delete:hover {
   background: hsla(0, 0%, 48%, 1);
 }
+
+.dh-relative {
+  position: relative;
+}
+
+.dh-sticky {
+  position: sticky;
+  top: 0;
+  left: 0;
+}
