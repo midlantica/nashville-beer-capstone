@@ -46,7 +46,7 @@ export default function Brewery({ brewery }) {
   else if (sessionUser.userTypeId === 2) {
     return (
       <>
-        <p>else do this</p>
+        <p>Must be logged in</p>
         <img src={defaultImage} alt="placeholder image" />
       </>
     );

@@ -18,33 +18,19 @@ export default function Header() {
         <NavbarBrand tag={RRNavLink} to="/">🍺 Nashville Breweries</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav navbar className="w100" style={{lineHeight: "1", height: "2.8rem"}}>
+          <Nav navbar className="w100 justify-content-end" style={{lineHeight: "1", height: "2.8rem"}}>
             {isLoggedIn &&
               <>
-                <NavItem className="mx-auto">
-                  <FormGroup className="dh-form-search">
-                    <div className="input-group">
-                      <input
-                        type="text"
-                        className="form-control transW-200"
-                        placeholder="Search..."
-                      />
-                    </div>
-                  </FormGroup>
-                </NavItem>
+                {/* <div className="ml-auto"> */}
+                  <NavItem className="navbar-right">
+                    <NavLink tag={RRNavLink} to={`/admin/`}>&#9881;</NavLink>
+                  </NavItem>
 
-                <NavItem className="mx-5">
-
-                </NavItem>
-
-                <NavItem className="navbar-right">
-                <NavLink tag={RRNavLink} to={`/admin/`}>&#9881;</NavLink>
-                </NavItem>
-
-                <NavItem className="navbar-right">
-                  <a aria-current="page" className="nav-link"
-                    style={{ cursor: "pointer" }} onClick={logout}>Logout</a>
-                </NavItem>
+                  <NavItem className="">
+                    <a aria-current="page" className="nav-link"
+                      style={{ cursor: "pointer" }} onClick={logout}>Logout</a>
+                  </NavItem>
+                {/* </div> */}
               </>
             }
             {!isLoggedIn &&
