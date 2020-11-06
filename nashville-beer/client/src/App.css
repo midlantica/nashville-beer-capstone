@@ -55,6 +55,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: 0;
+  padding-top: 4rem !important;
 }
 
 code {
@@ -528,6 +529,10 @@ summary a:hover {
 
 .dh-sticky {
   position: sticky;
-  top: 0;
+  top: 4.55rem;
   left: 0;
+}
+
+.navbar {
+  box-shadow: 0 0px 14px -3px black;
 }
